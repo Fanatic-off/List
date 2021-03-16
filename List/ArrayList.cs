@@ -18,17 +18,6 @@ namespace List
         }
 
 
-        private void UpSize()
-        {
-            int newLenght = (int)(_array.Length * 1.33 + 1);
-            int[] tmpArray = new int[newLenght];
-            
-            for (int i = 0; i < _array.Length; i++) 
-            {
-                tmpArray[i] = _array[i];
-            }
-            _array = tmpArray;
-        }
 
         public void Add(int value)
         {
@@ -36,14 +25,6 @@ namespace List
 
             _array[Lenght] = value;
             Lenght++;
-        }
-
-        private void ChekAndUpSize()
-        {
-            if (Lenght == _array.Length)
-            {
-                UpSize();
-            }
         }
 
         public void AddToStart(int value)
@@ -57,6 +38,45 @@ namespace List
                 tmpArray[i + 1] = _array[i];
             }
             tmpArray[0] = value;
+        }
+
+        public void AddValueByIndex(int value, int index)
+        {
+            ChekAndUpSize();
+
+            int[] tmpArray = new int[Lenght];
+            for (int i = 0; i < index; i++)
+            {
+                tmpArray[i] = _array[i];
+            }
+
+            for (int i = index - 1; i < _array.Length; i++)
+            {
+                tmpArray[i + 1] = _array[i];
+            }
+
+            tmpArray[index - 1] = value;
+            _array = tmpArray;
+        }
+
+        private void ChekAndUpSize()
+        {
+            if (Lenght == _array.Length)
+            {
+                UpSize();
+            }
+        }
+
+        private void UpSize()
+        {
+            int newLenght = (int)(_array.Length * 1.33 + 1);
+            int[] tmpArray = new int[newLenght];
+            
+            for (int i = 0; i < _array.Length; i++) 
+            {
+                tmpArray[i] = _array[i];
+            }
+            _array = tmpArray;
         }
     }
 }
