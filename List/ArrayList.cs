@@ -59,6 +59,14 @@ namespace List
             _array = tmpArray;
         }
 
+        public void Remove()
+        {
+            if(Lenght != 0)
+            {
+                Lenght--;
+            }
+        }
+
         private void ChekAndUpSize()
         {
             if (Lenght == _array.Length)
