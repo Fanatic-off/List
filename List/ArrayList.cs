@@ -61,9 +61,20 @@ namespace List
 
         public void Remove()
         {
-            if(Lenght != 0)
+            if(1 < Lenght)
             {
                 Lenght--;
+            }
+        }
+
+        public void RemoveFromBegining()
+        {
+            if (1 < Lenght)
+            {
+                for (int i = 0; i < _array.Length; i++) 
+                {
+                    _array[i] = _array[i + 1];
+                }
             }
         }
 
