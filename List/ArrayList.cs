@@ -40,7 +40,7 @@ namespace List
             tmpArray[0] = value;
         }
 
-        public void AddValueByIndex(int value, int index)
+        public void AddValueByIndex(int index, int value)
         {
             ChekAndUpSize();
 
@@ -105,6 +105,17 @@ namespace List
             if (number < Lenght)
             {
                 for (int i = 0; i < _array.Length; i++)
+                {
+                    _array[i] = _array[number + i];
+                }
+            }
+        }
+
+        public void RemoveByIndexNumberElements(int index, int number)
+        {
+            if (number < Lenght)
+            {
+                for (int i = index; i < _array.Length; i++)
                 {
                     _array[i] = _array[number + i];
                 }
