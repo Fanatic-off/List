@@ -125,6 +125,18 @@ namespace List
         public int AccessByIndex(int index)
         {
             return _array[index - 1];
+        }   
+
+        public int AccessFirstIndexByValue(int value)
+        {
+            for (int i = 0; i < _array.Length; i++)
+            {
+                if(value == _array[i])
+                {
+                    return i + 1;
+                }
+            }
+            return -1;
         }
 
         private void ChekAndUpSize()
