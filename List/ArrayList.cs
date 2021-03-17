@@ -122,6 +122,11 @@ namespace List
             }
         }
 
+        public int AccessByIndex(int index)
+        {
+            return _array[index - 1];
+        }
+
         private void ChekAndUpSize()
         {
             if (Lenght == _array.Length)
