@@ -89,6 +89,17 @@ namespace List
             }
         }
 
+        public void RemoveFromTheEndNumberElements(int number)
+        {
+            if (number < Lenght)
+            {
+               for(int i =0; i < number; i++)
+                {
+                    Lenght--;
+                }
+            }
+        }
+
         private void ChekAndUpSize()
         {
             if (Lenght == _array.Length)
