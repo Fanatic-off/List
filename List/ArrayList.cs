@@ -100,6 +100,17 @@ namespace List
             }
         }
 
+        public void RemoveFromTheBeginingNumberElements(int number)
+        {
+            if (number < Lenght)
+            {
+                for (int i = 0; i < _array.Length; i++)
+                {
+                    _array[i] = _array[number + i];
+                }
+            }
+        }
+
         private void ChekAndUpSize()
         {
             if (Lenght == _array.Length)
