@@ -89,7 +89,7 @@ namespace List
             }
         }
 
-        public void RemoveFromTheEndNumberElements(int number)
+        public void RemoveNumberFromTheEndElements(int number)
         {
             if (number < Lenght)
             {
@@ -100,7 +100,7 @@ namespace List
             }
         }
 
-        public void RemoveFromTheBeginingNumberElements(int number)
+        public void RemoveNumberFromTheBeginingElements(int number)
         {
             if (number < Lenght)
             {
@@ -111,7 +111,7 @@ namespace List
             }
         }
 
-        public void RemoveByIndexNumberElements(int index, int number)
+        public void RemoveNumberByIndexElements(int index, int number)
         {
             if (number < Lenght)
             {
