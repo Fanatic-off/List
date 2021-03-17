@@ -78,6 +78,17 @@ namespace List
             }
         }
 
+        public void RemoveByIndex(int index)
+        {
+            if(1 < Lenght)
+            {
+                for (int i = index; i < _array.Length; i++)
+                {
+                    _array[i] = _array[i + 1];
+                }
+            }
+        }
+
         private void ChekAndUpSize()
         {
             if (Lenght == _array.Length)
