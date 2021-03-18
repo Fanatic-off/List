@@ -232,6 +232,7 @@ namespace List
                 {
                     if (_array[j] < Min)
                     {
+                        Min = _array[j];
                         tmpArray[i] = Min;
                     }
                 }
@@ -248,14 +249,44 @@ namespace List
             {
                 for (int j = i; j < _array.Length; j++)
                 {
-                    if (_array[j] < Max)
+                    if (Max < _array[j])
                     {
+                        Max = _array[j];
                         tmpArray[i] = Max;
                     }
                 }
             }
             _array = tmpArray;
 
+        }
+
+        public int RemoveFirstValue(int value)
+        {
+            for (int i = 0; i < Lenght; i++)
+            {
+                if (_array[i] == value)
+                {
+                    _array[i] = 0;
+                    return i + 1;
+                }
+            }
+            return -1;
+        }
+
+        public int RemoveAllValue(int value)
+        {
+            int count = 0;
+
+            for (int i = 0; i < Lenght; i++)
+            {
+                if (_array[i] == value)
+                {
+                    _array[i] = 0;
+                    count++;
+                }
+            }
+
+            return count;
         }
 
         private void ChekAndUpSize()
