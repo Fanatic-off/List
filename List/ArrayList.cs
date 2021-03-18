@@ -12,9 +12,21 @@ namespace List
 
         public ArrayList()
         {
+
+        }
+
+        public ArrayList(int lenght)
+        {
             Lenght = 0;
 
-            _array = new int[10];
+            _array = new int[lenght=10];
+        }
+
+        public ArrayList(int[] array)
+        {
+            _array = array;
+
+            Lenght = array.Length;
         }
 
 
@@ -288,6 +300,8 @@ namespace List
 
             return count;
         }
+
+
 
         private void ChekAndUpSize()
         {
