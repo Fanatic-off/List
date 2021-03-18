@@ -162,6 +162,19 @@ namespace List
             _array = tmpArray;
         }
 
+        public int SearchMaxValue()
+        {
+            int Max = _array[0];
+            for (int i = 0; i < _array.Length; i++)
+            {
+                if (Max < _array[i])
+                {
+                    Max = _array[i];
+                }
+            }
+            return Max;
+        }
+
         private void ChekAndUpSize()
         {
             if (Lenght == _array.Length)
