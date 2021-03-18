@@ -189,7 +189,37 @@ namespace List
             return Min;
         }
 
+        public int SearchIndexByMaxValue()
+        {
+            int Max = _array[0];
+            int tmp = 0;
 
+            for (int i = 0; i < _array.Length; i++)
+            {
+                if (Max < _array[i])
+                {
+                    Max = _array[i];
+                    tmp = i;
+                }
+            }
+            return tmp + 1;
+        }
+
+        public int SearchIndexByMinValue()
+        {
+            int Min = _array[0];
+            int tmp = 0;
+
+            for (int i = 0; i < _array.Length; i++)
+            {
+                if (_array[i] < Min)
+                {
+                    Min = _array[i];
+                    tmp = i;
+                }
+            }
+            return tmp + 1;
+        }
 
         private void ChekAndUpSize()
         {
