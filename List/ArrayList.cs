@@ -139,6 +139,18 @@ namespace List
             return -1;
         }
 
+        public void AccessValueByIndex(int index, int value)
+        {
+            if ((index <= _array.Length) && (index > 0))
+            {
+                _array[index - 1] = value;
+            }
+            else
+            {
+                throw new Exception("Invalid index ");
+            }
+        }
+
         private void ChekAndUpSize()
         {
             if (Lenght == _array.Length)
