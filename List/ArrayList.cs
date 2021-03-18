@@ -221,6 +221,26 @@ namespace List
             return tmp + 1;
         }
 
+        public void Sort()
+        {
+            int[] tmpArray = new int[_array.Length];
+            int Min = _array[0];
+
+            for(int i = 0; i < _array.Length; i++)
+            {
+                for(int j = i; j < _array.Length; j++)
+                {
+                    if (_array[j] < Min)
+                    {
+                        tmpArray[i] = Min;
+                    }
+                }
+            }
+            _array = tmpArray;
+        }
+
+
+
         private void ChekAndUpSize()
         {
             if (Lenght == _array.Length)
