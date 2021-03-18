@@ -175,6 +175,22 @@ namespace List
             return Max;
         }
 
+        public int SearchMinValue()
+        {
+            int Min = _array[0];
+
+            for (int i = 0; i < _array.Length; i++)
+            {
+                if (_array[i] < Min)
+                {
+                    Min = _array[i];
+                }
+            }
+            return Min;
+        }
+
+
+
         private void ChekAndUpSize()
         {
             if (Lenght == _array.Length)
