@@ -31,7 +31,7 @@ namespace List
         {
             ChekAndUpSize();
 
-            int[] tmpArray = new int[Lenght];
+            int[] tmpArray = new int[_array.Length];
 
             for (int i = 0; i < _array.Length; i++)
             {
@@ -44,7 +44,7 @@ namespace List
         {
             ChekAndUpSize();
 
-            int[] tmpArray = new int[Lenght];
+            int[] tmpArray = new int[_array.Length];
             for (int i = 0; i < index; i++)
             {
                 tmpArray[i] = _array[i];
@@ -149,6 +149,17 @@ namespace List
             {
                 throw new Exception("Invalid index ");
             }
+        }
+
+        public void Reverse()
+        {
+            int[] tmpArray = new int[_array.Length];
+
+            for(int i = 0; i < _array.Length; i++)
+            {
+                tmpArray[tmpArray.Length - i] = _array[i];
+            }
+            _array = tmpArray;
         }
 
         private void ChekAndUpSize()
