@@ -29,11 +29,12 @@ namespace List
             Lenght = array.Length;
         }
 
-
-
         public void Add(int value)
         {
-            ChekAndUpSize();
+            if (Lenght == _array.Length)
+            {
+                UpSize();
+            }
 
             _array[Lenght] = value;
             Lenght++;
@@ -41,7 +42,10 @@ namespace List
 
         public void AddToStart(int value)
         {
-            ChekAndUpSize();
+            if (Lenght == _array.Length)
+            {
+                UpSize();
+            }
 
             int[] tmpArray = new int[_array.Length];
 
@@ -54,7 +58,10 @@ namespace List
 
         public void AddValueByIndex(int index, int value)
         {
-            ChekAndUpSize();
+            if (Lenght == _array.Length)
+            {
+                UpSize();
+            }
 
             int[] tmpArray = new int[_array.Length];
             for (int i = 0; i < index; i++)
@@ -106,9 +113,9 @@ namespace List
             if (number < Lenght)
             {
                for(int i =0; i < number; i++)
-                {
+               {
                     Lenght--;
-                }
+               }
             }
         }
 
@@ -159,7 +166,7 @@ namespace List
             }
             else
             {
-                throw new Exception("Invalid index ");
+                throw new Exception("Invalid index");
             }
         }
 
@@ -299,16 +306,6 @@ namespace List
             }
 
             return count;
-        }
-
-
-
-        private void ChekAndUpSize()
-        {
-            if (Lenght == _array.Length)
-            {
-                UpSize();
-            }
         }
 
         private void UpSize()
