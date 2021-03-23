@@ -142,3 +142,5 @@ List.sln
 .vs/List/DesignTimeBuild/.dtbcache.v2
 
 .vs/List/v16/TestStore/0/002.testlog
+
+*.testlog

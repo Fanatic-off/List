@@ -12,21 +12,24 @@ namespace List
 
         public ArrayList()
         {
-
+            Lenght = 0;
+            _array = new int[10];
         }
 
-        public ArrayList(int lenght)
+        public ArrayList(int lenght = 10)
         {
             Lenght = 0;
-
-            _array = new int[lenght=10];
+            _array = new int[lenght];
         }
 
         public ArrayList(int[] array)
         {
-            _array = array;
-
             Lenght = array.Length;
+            _array = new int[(int)(array.Length * 1.33)];
+            for(int i = 0; i < array.Length; i++)
+            {
+                _array[i] = array[i];
+            }
         }
 
         public void Add(int value)
@@ -35,7 +38,6 @@ namespace List
             {
                 UpSize();
             }
-
             _array[Lenght] = value;
             Lenght++;
         }
