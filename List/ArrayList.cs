@@ -53,24 +53,20 @@ namespace List
 
         public void AddValueByIndex(int index, int value)
         {
-            if (Lenght == _array.Length)
+            int[] result = new int[_array.Length + 1];
+            for(int i = 0; i < _array.Length; i++)
             {
-                UpSize();
+                if (i < index)
+                {
+                    result[i] = _array[i];
+                }
+                else
+                {
+                    result[i+1] = _array[i];
+                }
             }
-
-            int[] tmpArray = new int[_array.Length];
-            for (int i = 0; i < index; i++)
-            {
-                tmpArray[i] = _array[i];
-            }
-
-            for (int i = index - 1; i < _array.Length; i++)
-            {
-                tmpArray[i + 1] = _array[i];
-            }
-
-            tmpArray[index - 1] = value;
-            _array = tmpArray;
+            result[index] = value;
+            CopyArray(result);
         }
 
         public void Remove()
