@@ -42,7 +42,7 @@ namespace List
 
         public void AddToStart(int value)
         {
-            int[] result = new int[Lenght + 1];
+            int[] result = new int[_array.Length + 1];
             result[0] = value;
             for (int i = 0; i < _array.Length; i++)
             {
@@ -309,7 +309,6 @@ namespace List
         {
             ArrayList arrayList = (ArrayList)obj;
             bool b = true;
-
             for (int i = 0; i < arrayList.Lenght; i++)
             {
                 if (arrayList._array[i] != this._array[i])
@@ -318,6 +317,16 @@ namespace List
                 }
             }
             return Lenght == arrayList.Lenght && b;
+        }
+
+        public override string ToString()
+        {
+            String result = "";
+            for (int i = 0; i < _array.Length; i++)
+            {
+                result += _array[i] + ","; 
+            }
+            return result;
         }
 
         private void CopyArray(int[] array)
