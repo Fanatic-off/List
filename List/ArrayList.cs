@@ -42,19 +42,13 @@ namespace List
 
         public void AddToStart(int value)
         {
-            if (Lenght == _array.Length)
-            {
-                UpSize();
-            }
-
             int[] result = new int[Lenght + 1];
             result[0] = value;
-
             for (int i = 0; i < _array.Length; i++)
             {
                 result[i + 1] = _array[i];
             }
-            _array.
+            CopyArray(result);
         }
 
         public void AddValueByIndex(int index, int value)
@@ -326,13 +320,13 @@ namespace List
             return Lenght == arrayList.Lenght && b;
         }
 
-        private int[] CopyArray(int[] array)
+        private void CopyArray(int[] array)
         {
+            _array = new int[array.Length];
             for (int i = 0; i < array.Length; i++)
             {
                 _array[i] = array[i];
             }
-            return _array;
         }
 
         private void UpSize()
