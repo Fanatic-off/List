@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -47,13 +47,14 @@ namespace List
                 UpSize();
             }
 
-            int[] tmpArray = new int[_array.Length];
+            int[] result = new int[Lenght + 1];
 
+            result[0] = value;
             for (int i = 0; i < _array.Length; i++)
             {
-                tmpArray[i + 1] = _array[i];
+                result[i + 1] = _array[i];
             }
-            tmpArray[0] = value;
+            _array.CopyTo(result, 0);
         }
 
         public void AddValueByIndex(int index, int value)
@@ -94,6 +95,7 @@ namespace List
                 {
                     _array[i] = _array[i + 1];
                 }
+                Lenght--;
             }
         }
 
@@ -105,6 +107,7 @@ namespace List
                 {
                     _array[i] = _array[i + 1];
                 }
+                Lenght--;
             }
         }
 
@@ -112,10 +115,10 @@ namespace List
         {
             if (number < Lenght)
             {
-               for(int i =0; i < number; i++)
-               {
+                for (int i = 0; i < number; i++)
+                {
                     Lenght--;
-               }
+                }
             }
         }
 
