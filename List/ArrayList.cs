@@ -62,7 +62,7 @@ namespace List
                 }
                 else
                 {
-                    result[i+1] = _array[i];
+                    result[i + 1] = _array[i];
                 }
             }
             result[index] = value;
@@ -71,7 +71,7 @@ namespace List
 
         public void Remove()
         {
-            if(1 < Lenght)
+            if (0 < Lenght)
             {
                 Lenght--;
             }
@@ -79,14 +79,19 @@ namespace List
 
         public void RemoveFromBegining()
         {
-            if (1 < Lenght)
+            int[] result = new int[_array.Length - 1];
+            if (1 < _array.Length)
             {
-                for (int i = 0; i < _array.Length; i++) 
+                for (int i = 0; i < result.Length; i++)
                 {
-                    _array[i] = _array[i + 1];
+                    result[i] = _array[i + 1];
                 }
-                Lenght--;
             }
+            else
+            {
+                Remove();
+            }
+            CopyArray(result);
         }
 
         public void RemoveByIndex(int index)
@@ -320,7 +325,7 @@ namespace List
             String result = "";
             for (int i = 0; i < _array.Length; i++)
             {
-                result += _array[i] + ","; 
+                result += _array[i] + " "; 
             }
             return result;
         }
@@ -331,19 +336,19 @@ namespace List
             for (int i = 0; i < array.Length; i++)
             {
                 _array[i] = array[i];
+                Lenght = array.Length;
             }
         }
 
         private void UpSize()
         {
             int newLenght = (int)(_array.Length * 1.33 + 1);
-            int[] tmpArray = new int[newLenght];
-            
+            int[] result = new int[newLenght];
             for (int i = 0; i < _array.Length; i++) 
             {
-                tmpArray[i] = _array[i];
+                result[i] = _array[i];
             }
-            _array = tmpArray;
+            _array = result;
         }
     }
 }
