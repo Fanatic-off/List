@@ -26,22 +26,26 @@ namespace List.Tests
             ArrayList arrayListActual = new ArrayList(arrayActual);
 
             arrayListActual.AddToStart(value);
+            string actual = arrayListActual.ToString();
+            string expected = arrayListExpected.ToString();
 
-            Assert.AreEqual(arrayListExpected, arrayListActual);
+            Assert.AreEqual(expected, actual);
         }
 
-        //[TestCase(new int[] { 1, 2, 3 }, 4, new int[] { 1, 2, 3, 4 })]
-        //[TestCase(new int[] { 34, 678, 94, 15 }, 125, new int[] { 34, 678, 94, 15, 125 })]
-        //[TestCase(new int[] { 33, 66, 2345, 213, -12 }, -314, new int[] { 33, 66, 2345, 213, -12, -314 })]
-        //public void AddValueByIndexTests(int[] arrayActual, int value, int[] arrayExpected)
-        //{
-        //    ArrayList arrayListExpected = new ArrayList(arrayExpected);
-        //    ArrayList arrayListActual = new ArrayList(arrayActual);
+        [TestCase(new int[] { 1, 2, 3 }, 0, 4, new int[] { 4, 1, 2, 3 })]
+        [TestCase(new int[] { 34, 678, 94, 15 }, 4, 125, new int[] { 34, 678, 94, 15, 125 })]
+        [TestCase(new int[] { 33, 66, 2345, 213, -12 }, 2, -314, new int[] { 33, 66, -314, 2345, 213, -12 })]
+        public void AddValueByIndexTests(int[] arrayActual, int index, int value, int[] arrayExpected)
+        {
+            ArrayList arrayListExpected = new ArrayList(arrayExpected);
+            ArrayList arrayListActual = new ArrayList(arrayActual);
 
-        //    arrayListActual.AddValueByIndex(1,value);
+            arrayListActual.AddValueByIndex(index, value);
+            string actual = arrayListActual.ToString();
+            string expected = arrayListExpected.ToString();
 
-        //    Assert.AreEqual(arrayListExpected, arrayListActual);
-        //}
+            Assert.AreEqual(expected, actual);
+        }
 
         [TestCase(new int[] { 1, 2, 3 }, new int[] { 1, 2})]
         [TestCase(new int[] { 34, 678, 94, 15 }, new int[] { 34, 678, 94 })]
@@ -56,18 +60,20 @@ namespace List.Tests
             Assert.AreEqual(arrayListExpected, arrayListActual);
         }
 
-        //[TestCase(new int[] { 1, 2, 3 }, new int[] { 2, 3 })]
-        //[TestCase(new int[] { 34, 678, 94, 15 }, new int[] { 678, 94, 15 })]
-        //[TestCase(new int[] { 33, 66, 2345, 213, -12 }, new int[] { 66, 2345, 213, -12 })]
-        //public void RemoveFromBeginingTests(int[] arrayActual, int[] arrayExpected)
-        //{
-        //    ArrayList arrayListExpected = new ArrayList(arrayExpected);
-        //    ArrayList arrayListActual = new ArrayList(arrayActual);
+        [TestCase(new int[] { 1, 2, 3 }, new int[] { 2, 3 })]
+        [TestCase(new int[] { 34, 678, 94, 15 }, new int[] { 678, 94, 15 })]
+        [TestCase(new int[] { 33, 66, 2345, 213, -12 }, new int[] { 66, 2345, 213, -12 })]
+        public void RemoveFromBeginingTests(int[] arrayActual, int[] arrayExpected)
+        {
+            ArrayList arrayListExpected = new ArrayList(arrayExpected);
+            ArrayList arrayListActual = new ArrayList(arrayActual);
 
-        //    arrayListActual.RemoveFromBegining();
+            arrayListActual.RemoveFromBegining();
+            string actual = arrayListActual.ToString();
+            string expected = arrayListExpected.ToString();
 
-        //    Assert.AreEqual(arrayListExpected, arrayListActual);
-        //}
+            Assert.AreEqual(expected, actual);
+        }
 
         //[TestCase(new int[] { 1, 2, 3 }, 1, new int[] { 2, 3 })]
         //[TestCase(new int[] { 34, 678, 94, 15 }, 1, new int[] { 678, 94, 15 })]
