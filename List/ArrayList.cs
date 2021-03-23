@@ -308,6 +308,21 @@ namespace List
             return count;
         }
 
+        public override bool Equals(object obj)
+        {
+            ArrayList arrayList = (ArrayList)obj;
+            bool b = true;
+
+            for (int i = 0; i < arrayList.Lenght; i++)
+            {
+                if (arrayList._array[i] != this._array[i])
+                {
+                    b = false;
+                }
+            }
+            return Lenght == arrayList.Lenght && b;
+        }
+
         private void UpSize()
         {
             int newLenght = (int)(_array.Length * 1.33 + 1);
