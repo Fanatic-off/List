@@ -26,11 +26,9 @@ namespace List
         {
             Lenght = array.Length;
             _array = new int[(int)(array.Length * 1.33)];
-            for(int i = 0; i < array.Length; i++)
-            {
-                _array[i] = array[i];
-            }
+            CopyArray(array);
         }
+
 
         public void Add(int value)
         {
@@ -50,13 +48,13 @@ namespace List
             }
 
             int[] result = new int[Lenght + 1];
-
             result[0] = value;
+
             for (int i = 0; i < _array.Length; i++)
             {
                 result[i + 1] = _array[i];
             }
-            _array.CopyTo(result, 0);
+            _array.
         }
 
         public void AddValueByIndex(int index, int value)
@@ -326,6 +324,15 @@ namespace List
                 }
             }
             return Lenght == arrayList.Lenght && b;
+        }
+
+        private int[] CopyArray(int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                _array[i] = array[i];
+            }
+            return _array;
         }
 
         private void UpSize()
