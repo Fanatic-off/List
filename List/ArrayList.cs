@@ -333,10 +333,10 @@ namespace List
             {
                 for (int i = 0; i < Lenght; i++)
                 {
-                    if (_array[i] == value)
+                    while (_array[i] == value)
                     {
-                        count++;
                         RemoveByValue(value);
+                        count++;
                     }
                 }
                 Lenght = Lenght - count;
