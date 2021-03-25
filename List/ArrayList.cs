@@ -207,7 +207,7 @@ namespace List
         public int SearchMaxValue()
         {
             int Max = _array[0];
-            for (int i = 0; i < _array.Length; i++)
+            for (int i = 0; i < Lenght; i++)
             {
                 if (Max < _array[i])
                 {
@@ -220,8 +220,7 @@ namespace List
         public int SearchMinValue()
         {
             int Min = _array[0];
-
-            for (int i = 0; i < _array.Length; i++)
+            for (int i = 0; i < Lenght; i++)
             {
                 if (_array[i] < Min)
                 {
