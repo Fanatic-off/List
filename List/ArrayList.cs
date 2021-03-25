@@ -162,7 +162,7 @@ namespace List
 
         public int AccessByIndex(int index)
         {
-            return _array[index - 1];
+            return _array[index];
         }   
 
         public int AccessFirstIndexByValue(int value)
