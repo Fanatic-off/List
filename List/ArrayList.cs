@@ -42,9 +42,9 @@ namespace List
 
         public void AddToStart(int value)
         {
-            int[] result = new int[_array.Length + 1];
+            int[] result = new int[Lenght + 1];
             result[0] = value;
-            for (int i = 0; i < _array.Length; i++)
+            for (int i = 0; i < Lenght; i++)
             {
                 result[i + 1] = _array[i];
             }
@@ -53,8 +53,8 @@ namespace List
 
         public void AddValueByIndex(int index, int value)
         {
-            int[] result = new int[_array.Length + 1];
-            for(int i = 0; i < _array.Length; i++)
+            int[] result = new int[Lenght + 1];
+            for(int i = 0; i < Lenght; i++)
             {
                 if (i < index)
                 {
@@ -79,17 +79,18 @@ namespace List
 
         public void RemoveFromBegining()
         {
-            int[] result = new int[_array.Length - 1];
+            int[] result = new int[Lenght = Lenght - 1];
             if (1 < _array.Length)
             {
-                for (int i = 0; i < result.Length; i++)
+                UpSize();
+                for (int i = 0; i < Lenght; i++)
                 {
                     result[i] = _array[i + 1];
                 }
             }
             else
             {
-                Remove();
+                throw new Exception("Array's lenght less 1");
             }
             CopyArray(result);
         }
