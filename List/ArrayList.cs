@@ -244,7 +244,7 @@ namespace List
             return index;
         }
 
-        public int SearchIndexByMinValue()
+        public int SearchIndexOfMinValue()
         {
             int Min = _array[0];
             int tmp = 0;
