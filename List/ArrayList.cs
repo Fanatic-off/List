@@ -299,22 +299,36 @@ namespace List
 
         public int RemoveByValue(int value)
         {
-            for (int i = 0; i < Lenght; i++)
+            int index = -1;
+            if (1 < Lenght)
             {
-                if (_array[i] == value)
+                bool trim = false;
+                int[] result = new int[Lenght];
+                UpSize();
+                for (int i = 0; i < Lenght; i++)
                 {
-                    _array[i] = 0;
-                    Lenght--;
-                    return i;
+                    result[i] = _array[i];
+                    if (_array[i] == value)
+                    {
+                        index = i;
+                        result[i] = _array[i + 1];
+                        trim = true;
+                    }
+                    if (trim == true)
+                    {
+                        result[i] = _array[i + 1];
+                    }
                 }
+                CopyArray(result);
+                Lenght--;
+                return index;
             }
-            return -1;
+            return index;
         }
 
-        public int RemoveAllValue(int value)
+        public int RemoveAllindexByValue(int value)
         {
             int count = 0;
-
             for (int i = 0; i < Lenght; i++)
             {
                 if (_array[i] == value)
