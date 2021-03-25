@@ -195,13 +195,12 @@ namespace List
 
         public void Reverse()
         {
-            int[] tmpArray = new int[_array.Length];
-
-            for(int i = 0; i < _array.Length; i++)
+            int[] result = new int[Lenght];
+            for(int i = 0; i < Lenght; i++)
             {
-                tmpArray[tmpArray.Length - i] = _array[i];
+                result[Lenght - i - 1] = _array[i];
             }
-            _array = tmpArray;
+            CopyArray(result);
         }
 
         public int SearchMaxValue()
