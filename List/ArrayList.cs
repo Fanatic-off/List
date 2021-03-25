@@ -140,14 +140,23 @@ namespace List
             }
         }
 
-        public void RemoveNumberByIndexElements(int index, int number)
+        public void RemoveSeveralElementsByIndex(int index, int number)
         {
             if (number < Lenght)
             {
-                for (int i = index; i < _array.Length; i++)
+                int[] result = new int[Lenght = Lenght - number];
+                for (int i = 0; i < Lenght; i++)
                 {
-                    _array[i] = _array[number + i];
+                    if (i < index)
+                    {
+                        result[i] = _array[i];
+                    }
+                    else
+                    {
+                        result[i] = _array[i + number];
+                    }
                 }
+                CopyArray(result);
             }
         }
 
