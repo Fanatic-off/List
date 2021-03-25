@@ -9,6 +9,7 @@ namespace List
         public int Lenght { get; private set; }
         
         private int[] _array;
+        private int i;
 
         public ArrayList()
         {
@@ -260,23 +261,22 @@ namespace List
             return index;
         }
 
-        public void Sort()
+        public int[] Sort()
         {
-            int[] tmpArray = new int[_array.Length];
-            int Min = _array[0];
-
-            for(int i = 0; i < _array.Length; i++)
+            for(int i = 0; i < Lenght; i++)
             {
-                for(int j = i; j < _array.Length; j++)
+                int min = _array[i];
+                for(int j = i; j < Lenght; j++)
                 {
-                    if (_array[j] < Min)
+                    if (_array[j] < min)
                     {
-                        Min = _array[j];
-                        tmpArray[i] = Min;
+                        _array[i] = _array[j];
+                        _array[j] = min;
+                        min = _array[i];
                     }
                 }
             }
-            _array = tmpArray;
+            return _array;
         }
 
         public void SortReverse()
@@ -355,10 +355,10 @@ namespace List
         private void CopyArray(int[] array)
         {
             _array = new int[array.Length];
+            Lenght = array.Length;
             for (int i = 0; i < array.Length; i++)
             {
                 _array[i] = array[i];
-                Lenght = array.Length;
             }
         }
 
