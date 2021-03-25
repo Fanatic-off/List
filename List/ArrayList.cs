@@ -127,14 +127,16 @@ namespace List
             }
         }
 
-        public void RemoveNumberFromTheBeginingElements(int number)
+        public void RemoveSeveralElementsFromTheBegin(int number)
         {
             if (number < Lenght)
             {
-                for (int i = 0; i < _array.Length; i++)
+                int[] result = new int[Lenght = Lenght - number];
+                for (int i = 0; i < Lenght; i++)
                 {
-                    _array[i] = _array[number + i];
+                    result[i] = _array[i + number];
                 }
+                CopyArray(result);
             }
         }
 
