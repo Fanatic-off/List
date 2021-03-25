@@ -279,24 +279,22 @@ namespace List
             return _array;
         }
 
-        public void SortReverse()
+        public int[] SortReverse()
         {
-            int[] tmpArray = new int[_array.Length];
-            int Max = _array[0];
-
-            for (int i = 0; i < _array.Length; i++)
+            for (int i = 0; i < Lenght; i++)
             {
-                for (int j = i; j < _array.Length; j++)
+                int max = _array[i];
+                for (int j = i; j < Lenght; j++)
                 {
-                    if (Max < _array[j])
+                    if (max < _array[j])
                     {
-                        Max = _array[j];
-                        tmpArray[i] = Max;
+                        _array[i] = _array[j];
+                        _array[j] = max;
+                        max = _array[i];
                     }
                 }
             }
-            _array = tmpArray;
-
+            return _array;
         }
 
         public int RemoveFirstValue(int value)
