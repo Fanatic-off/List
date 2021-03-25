@@ -97,13 +97,22 @@ namespace List
 
         public void RemoveByIndex(int index)
         {
-            if(1 < Lenght)
+            int[] result = new int[Lenght = Lenght - 1];
+            if (1 < Lenght)
             {
-                for (int i = index; i < _array.Length; i++)
+                UpSize();
+                for (int i = 0; i < Lenght; i++)
                 {
-                    _array[i] = _array[i + 1];
+                    if (i < index)
+                    {
+                        result[i] = _array[i];
+                    }
+                    else
+                    {
+                        result[i] = _array[i + 1];
+                    }
                 }
-                Lenght--;
+                CopyArray(result);
             }
         }
 
