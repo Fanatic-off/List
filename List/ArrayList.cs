@@ -297,14 +297,15 @@ namespace List
             return _array;
         }
 
-        public int RemoveFirstValue(int value)
+        public int RemoveByValue(int value)
         {
             for (int i = 0; i < Lenght; i++)
             {
                 if (_array[i] == value)
                 {
                     _array[i] = 0;
-                    return i + 1;
+                    Lenght--;
+                    return i;
                 }
             }
             return -1;
