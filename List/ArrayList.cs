@@ -116,7 +116,7 @@ namespace List
             }
         }
 
-        public void RemoveNumberFromTheEndElements(int number)
+        public void RemoveSeveralElementsFromTheEnd(int number)
         {
             if (number < Lenght)
             {
