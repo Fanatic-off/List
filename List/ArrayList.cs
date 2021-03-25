@@ -247,17 +247,17 @@ namespace List
         public int SearchIndexOfMinValue()
         {
             int Min = _array[0];
-            int tmp = 0;
+            int index = 0;
 
-            for (int i = 0; i < _array.Length; i++)
+            for (int i = 0; i < Lenght; i++)
             {
                 if (_array[i] < Min)
                 {
                     Min = _array[i];
-                    tmp = i;
+                    index = i;
                 }
             }
-            return tmp + 1;
+            return index;
         }
 
         public void Sort()
