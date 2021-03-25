@@ -181,11 +181,11 @@ namespace List
             return -1;
         }
 
-        public void AccessValueByIndex(int index, int value)
+        public void ChangeValueByIndex(int index, int value)
         {
-            if ((index <= _array.Length) && (index > 0))
+            if ((0 <= index) && (index < Lenght))
             {
-                _array[index - 1] = value;
+                _array[index] = value;
             }
             else
             {
