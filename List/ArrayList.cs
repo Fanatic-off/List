@@ -162,16 +162,20 @@ namespace List
 
         public int AccessByIndex(int index)
         {
-            return _array[index];
+            if (0 <= index && index <= Lenght)
+            {
+                return _array[index];
+            }
+            return -1;
         }   
 
         public int AccessFirstIndexByValue(int value)
         {
-            for (int i = 0; i < _array.Length; i++)
+            for (int i = 0; i < Lenght; i++)
             {
                 if(value == _array[i])
                 {
-                    return i + 1;
+                    return i;
                 }
             }
             return -1;
