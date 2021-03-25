@@ -326,18 +326,44 @@ namespace List
             return index;
         }
 
-        public int RemoveAllindexByValue(int value)
+        public int RemoveByValueAllIndex(int value)
         {
             int count = 0;
-            for (int i = 0; i < Lenght; i++)
+            if (1 < Lenght)
             {
-                if (_array[i] == value)
+                bool trim = false;
+                int[] result = new int[Lenght];
+                UpSize();
+                for (int i = 0; i < Lenght; i++)
                 {
-                    _array[i] = 0;
-                    count++;
+                    if (_array[i] == value)
+                    {
+                        for(int j = i; j < Lenght; j++)
+                        {
+                            if(_array[j] == value)
+                            {
+                                count++;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        result[i] = _array[i + count];
+                        Lenght--;
+                        trim = true;
+                    }
+                    if (trim == true)
+                    {
+                        result[i] = _array[i + count];
+                    }
+                    else
+                    {
+                        result[i] = _array[i];
+                    }
                 }
+                CopyArray(result);
             }
-
             return count;
         }
 
