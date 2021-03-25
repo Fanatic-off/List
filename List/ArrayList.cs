@@ -331,38 +331,15 @@ namespace List
             int count = 0;
             if (1 < Lenght)
             {
-                bool trim = false;
-                int[] result = new int[Lenght];
-                UpSize();
                 for (int i = 0; i < Lenght; i++)
                 {
                     if (_array[i] == value)
                     {
-                        for(int j = i; j < Lenght; j++)
-                        {
-                            if(_array[j] == value)
-                            {
-                                count++;
-                            }
-                            else
-                            {
-                                break;
-                            }
-                        }
-                        result[i] = _array[i + count];
-                        Lenght--;
-                        trim = true;
-                    }
-                    if (trim == true)
-                    {
-                        result[i] = _array[i + count];
-                    }
-                    else
-                    {
-                        result[i] = _array[i];
+                        count++;
+                        RemoveByValue(value);
                     }
                 }
-                CopyArray(result);
+                Lenght = Lenght - count;
             }
             return count;
         }
