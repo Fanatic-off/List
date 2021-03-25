@@ -229,20 +229,19 @@ namespace List
             return Min;
         }
 
-        public int SearchIndexByMaxValue()
+        public int SearchIndexOfMaxValue()
         {
             int Max = _array[0];
-            int tmp = 0;
-
-            for (int i = 0; i < _array.Length; i++)
+            int index = 0;
+            for (int i = 0; i < Lenght; i++)
             {
                 if (Max < _array[i])
                 {
                     Max = _array[i];
-                    tmp = i;
+                    index = i;
                 }
             }
-            return tmp + 1;
+            return index;
         }
 
         public int SearchIndexByMinValue()
