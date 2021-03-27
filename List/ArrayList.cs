@@ -101,6 +101,28 @@ namespace List
             return result;
         }
 
+        public ArrayList AddArrayListByIndex(ArrayList arrayList, int index)
+        {
+            int newLenght = _array.Length + arrayList.Lenght;
+            if ((Lenght < index)&&
+                (index < -1))
+            {
+                throw new Exception("Invalid index");
+            }
+            ArrayList result = new ArrayList(newLenght);
+            for (int i = 0; i < result.Lenght; i++)
+            {
+                if (i != index)
+                {
+                    result.AddArrayList(arrayList);
+                }
+                result.Add(_array[i]);
+            }
+            return result;
+        }
+
+
+
         public void Remove()
         {
             if (0 < Lenght)
