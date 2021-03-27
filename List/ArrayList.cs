@@ -87,6 +87,20 @@ namespace List
             return result;
         }
 
+        public ArrayList AddArrayListToBegin(ArrayList arrayList)
+        {
+            ArrayList result = new ArrayList(_array.Length + arrayList.Lenght);
+            for (int i = 0; i < result.Lenght; i++)
+            {
+                if (i < Lenght)
+                {
+                    result.Add(arrayList.AccessByIndex(i));
+                }
+                result.Add(_array[i]);
+            }
+            return result;
+        }
+
         public void Remove()
         {
             if (0 < Lenght)
