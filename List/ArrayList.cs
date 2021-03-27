@@ -98,9 +98,9 @@ namespace List
 
         public void RemoveByIndex(int index)
         {
-            int[] result = new int[Lenght = Lenght - 1];
             if (1 < Lenght)
             {
+                int[] result = new int[Lenght = Lenght - 1];
                 UpSize();
                 for (int i = 0; i < Lenght; i++)
                 {
@@ -329,17 +329,12 @@ namespace List
         public int RemoveByValueAllIndex(int value)
         {
             int count = 0;
-            if (1 < Lenght)
+            int index = AccessFirstIndexByValue(value);
+            while (index != -1)
             {
-                for (int i = 0; i < Lenght; i++)
-                {
-                    while (_array[i] == value)
-                    {
-                        RemoveByValue(value);
-                        count++;
-                    }
-                }
-                Lenght = Lenght - count;
+                RemoveByIndex(index);
+                count++;
+                index = AccessFirstIndexByValue(value);
             }
             return count;
         }
@@ -350,12 +345,13 @@ namespace List
             bool b = true;
             for (int i = 0; i < arrayList.Lenght; i++)
             {
-                if (arrayList._array[i] != this._array[i])
+                if (arrayList._array[i] != _array[i] &&
+                    this.Lenght != Lenght)
                 {
                     b = false;
                 }
             }
-            return Lenght == arrayList.Lenght && b;
+            return b;
         }
 
         public override string ToString()
