@@ -91,21 +91,24 @@ namespace List
 
         public void AddByIndex(int value, int index)
         {
+            Length++;
             Node current = _root;
 
-            current = SearchCurrentNodeByIndex(index);
-        }
-
-        private Node SearchCurrentNodeByIndex(int index)
-        {
-            Node current = _root;
-
-            for (int i = 1; i < index; i++)
+            if (index == 0)
             {
-                current = current.Next;
+                AddToRoot(value);
             }
-            return current;
+            else
+            {
+                current = SearchCurrentNodeByIndex(index - 1);
+                Node tmpRoot = current;
+                Node tmpTail = current.Next;
+                current = new Node(value);
+                tmpRoot.Next = current;
+                current.Next = tmpTail;
+            }
         }
+
 
         public void RemoveFirst()
         {
@@ -170,6 +173,16 @@ namespace List
             return true;
         }
 
+        private Node SearchCurrentNodeByIndex(int index)
+        {
+            Node current = _root;
+
+            for (int i = 0; i < index; i++)
+            {
+                current = current.Next;
+            }
+            return current;
+        }
 
     }
 }
