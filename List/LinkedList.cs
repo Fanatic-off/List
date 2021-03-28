@@ -80,6 +80,14 @@ namespace List
             _tail.Next = new Node(value);
             _tail = _tail.Next;
         }
+
+        public void AddToRoot(int value)
+        {
+            Length++;
+            Node tmp = _root;
+            _root = new Node(value);
+            _root.Next = tmp;
+        }
         
         public void RemoveFirst()
         {
@@ -99,6 +107,7 @@ namespace List
 
             Length--;
         }
+
         public override string ToString()
         {
             if (Length != 0)
@@ -145,5 +154,7 @@ namespace List
 
             return true;
         }
+
+
     }
 }
