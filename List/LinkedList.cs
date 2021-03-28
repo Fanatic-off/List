@@ -88,7 +88,24 @@ namespace List
             _root = new Node(value);
             _root.Next = tmp;
         }
-        
+
+        public void AddByIndex(int value, int index)
+        {
+            Node current = _root;
+
+            current = SearchCurrentNodeByIndex(index, current);
+        }
+
+        private static Node SearchCurrentNodeByIndex(int index, Node current)
+        {
+            for (int i = 1; i < index; i++)
+            {
+                current = current.Next;
+            }
+
+            return current;
+        }
+
         public void RemoveFirst()
         {
             _root = _root.Next;
