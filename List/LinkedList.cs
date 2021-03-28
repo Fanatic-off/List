@@ -93,16 +93,17 @@ namespace List
         {
             Node current = _root;
 
-            current = SearchCurrentNodeByIndex(index, current);
+            current = SearchCurrentNodeByIndex(index);
         }
 
-        private static Node SearchCurrentNodeByIndex(int index, Node current)
+        private Node SearchCurrentNodeByIndex(int index)
         {
+            Node current = _root;
+
             for (int i = 1; i < index; i++)
             {
                 current = current.Next;
             }
-
             return current;
         }
 
