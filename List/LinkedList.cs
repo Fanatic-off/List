@@ -116,10 +116,7 @@ namespace List
         {
             Node current = _root;
 
-            for (int i = 1; i < index; i++)
-            {
-                current = current.Next;
-            }
+            SearchCurrentNodeByIndex(index);
 
             current.Next = current.Next.Next;
 
