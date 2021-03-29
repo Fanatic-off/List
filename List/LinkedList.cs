@@ -143,6 +143,17 @@ namespace List
             }
         }
 
+        public void RemoveFirstSeveralElements(int number)
+        {
+            if (number < Length)
+            {
+                for(int i = 0; i < number; i++)
+                {
+                    RemoveFirst();
+                }
+            }
+        }
+
         public override string ToString()
         {
             if (Length != 0)
