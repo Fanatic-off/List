@@ -109,6 +109,12 @@ namespace List
             }
         }
 
+        public void RemoveLast()
+        {
+            Length--;
+            _tail = SearchCurrentNodeByIndex(Length - 1);
+            _tail.Next = null;
+        }
 
         public void RemoveFirst()
         {
