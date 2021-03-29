@@ -132,6 +132,17 @@ namespace List
             Length--;
         }
 
+        public void RemoveLastSeveralElements(int number)
+        {
+            if (number < Length)
+            {
+                for(int i = 0; i < number; i++)
+                {
+                    RemoveLast();
+                }
+            }
+        }
+
         public override string ToString()
         {
             if (Length != 0)
