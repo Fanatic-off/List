@@ -154,6 +154,24 @@ namespace List
             }
         }
 
+        public void RemoveByIndexSeveralElements(int index, int number)
+        {
+
+            if ((number < Length)&&
+                (index < Length - 1)&&
+                (index != 0))
+            {
+                for(int i = 0; i < number; i++)
+                {
+                    RemoveByIndex(index);
+                }
+            }
+            if (index == 0)
+            {
+                RemoveFirst();
+            }
+        }
+
         public override string ToString()
         {
             if (Length != 0)
