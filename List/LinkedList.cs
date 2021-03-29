@@ -216,6 +216,23 @@ namespace List
             return max;
         }
 
+        public int SearchMinValue()
+        {
+            Node current = _root;
+            int min = current.Value;
+
+            for (int i = 0; i < Length; i++)
+            {
+                if (current.Value < min)
+                {
+                    min = current.Value;
+                }
+                current = current.Next;
+            }
+            return min;
+        }
+
+
         public override string ToString()
         {
             if (Length != 0)
