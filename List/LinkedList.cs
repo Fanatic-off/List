@@ -192,6 +192,14 @@ namespace List
             return -1;
         }
 
+        public void ChangeValueByIndex(int index, int value)
+        {
+            Node current = _root;
+
+            current = SearchCurrentNodeByIndex(index);
+            current.Value = value;
+        }
+
         public override string ToString()
         {
             if (Length != 0)
