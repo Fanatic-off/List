@@ -200,6 +200,22 @@ namespace List
             current.Value = value;
         }
 
+        public int SearchMaxValue()
+        {
+            Node current = _root;
+            int max = current.Value;
+
+            for (int i = 0; i < Length; i++)
+            {
+                if (max < current.Value)
+                {
+                    max = current.Value;
+                }
+                current = current.Next;
+            }
+            return max;
+        }
+
         public override string ToString()
         {
             if (Length != 0)
