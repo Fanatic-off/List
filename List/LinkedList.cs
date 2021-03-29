@@ -74,6 +74,8 @@ namespace List
             }
         }
 
+
+
         public void Add(int value)
         {
             Length++;
@@ -170,6 +172,24 @@ namespace List
             {
                 RemoveFirst();
             }
+        }
+
+        public int GetIndexByValue(int value)
+        {
+            Node current = _root;
+            int index = 0;
+
+            do
+            {
+                if (current.Value == value)
+                {
+                    return index;
+                }
+                current = current.Next;
+                index++;
+            }
+            while (!(current.Next is null));
+            return -1;
         }
 
         public override string ToString()
