@@ -200,6 +200,22 @@ namespace List
             current.Value = value;
         }
 
+        public void Reverse()
+        {
+            Node current = _root;
+            Node previous = null;
+            Node tmpNext = null;
+
+            while (current != null)
+            {
+                tmpNext = current.Next;
+                current.Next = previous;
+                previous = current;
+                current = tmpNext;
+            }
+            _root = previous;
+        }
+
         public int SearchMaxValue()
         {
             Node current = _root;
@@ -232,6 +248,11 @@ namespace List
             return min;
         }
 
+        public int SearchIndexOfMaxValue()
+        {
+            int max = SearchMaxValue();
+            return GetIndexByValue(max);
+        }
 
         public override string ToString()
         {
