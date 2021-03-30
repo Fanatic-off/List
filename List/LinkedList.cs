@@ -254,6 +254,12 @@ namespace List
             return GetIndexByValue(max);
         }
 
+        public int SearchIndexOfMinValue()
+        {
+            int min = SearchMinValue();
+            return GetIndexByValue(min);
+        }
+
         public override string ToString()
         {
             if (Length != 0)
