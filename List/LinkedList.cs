@@ -294,6 +294,25 @@ namespace List
             ////}
         }
 
+        private int[] SearchIndexAndValueMinimumElement()
+        {
+            int indexMinElement = 0;
+            int minElement = _root.Value;
+            Node current = _root;
+            for (int i = 0; i < Length; i++)
+            {
+                if (current.Value < minElement)
+                {
+                    minElement = current.Value;
+                    indexMinElement = i;
+                }
+                current = current.Next;
+            }
+            return new int[] { indexMinElement, minElement };
+
+        }
+
+
         public override string ToString()
         {
             if (Length != 0)
@@ -344,28 +363,6 @@ namespace List
                 return false;
             }
             return true;
-            //LinkedList list = (LinkedList)obj;
-
-            //if(this.Length!=list.Length)
-            //{
-            //    return false;
-            //}
-
-            //Node currentThis = this._root;
-            //Node currentList = list._root;
-
-            //do
-            //{
-            //    if (currentThis.Value != currentList.Value)
-            //    {
-            //        return false;
-            //    }
-            //    currentList = currentList.Next;
-            //    currentThis = currentThis.Next;
-            //} 
-            //while (!(currentThis.Next is null));
-
-            //return true;
         }
 
         private Node SearchCurrentNodeByIndex(int index)
