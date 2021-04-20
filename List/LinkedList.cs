@@ -255,19 +255,23 @@ namespace List
 
         public void Sort()
         {
-            int value;
-
-            Node current = _root;
-            while (!(current.Next is null))
+            Node iNode = _root;
+            int tmp;
+            for (int i = 0; i < Length; i++)
             {
-                if (current.Value > current.Next.Value)
+                Node jNode = iNode.Next;
+                for (int j = i + 1; j < Length; j++)
                 {
-                    value = current.Value;
-                    current.Value = current.Next.Value;
-                    current.Next.Value = value;
+                    if (iNode.Value > jNode.Value)
+                    {
+                        tmp = iNode.Value;
+                        iNode.Value = jNode.Value;
+                        jNode.Value = tmp;
+                    }
+                    jNode = jNode.Next;
                 }
-                current = current.Next;
-            }
+                iNode = iNode.Next;
+            }   
             //while (tmpNext != null) 
             //{
             //    tmpNext = current.Next;
