@@ -293,7 +293,23 @@ namespace List
             ////    current = current.Next;
             ////}
         }
+        private int[] SearchIndexAndValueMaximumElement()
+        {
+            int indexMaxElement = 0;
+            int maxElement = _root.Value;
+            Node current = _root;
+            for (int i = 0; i < Length; i++)
+            {
+                if (current.Value > maxElement)
+                {
+                    maxElement = current.Value;
+                    indexMaxElement = i;
+                }
+                current = current.Next;
+            }
+            return new int[] { indexMaxElement, maxElement };
 
+        }
         private int[] SearchIndexAndValueMinimumElement()
         {
             int indexMinElement = 0;
