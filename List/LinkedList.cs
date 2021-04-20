@@ -41,23 +41,9 @@ namespace List
             CreateEmpyList();
         }
 
-        private void CreateEmpyList()
-        {
-            Length = 0;
-            _root = null;
-            _tail = _root;
-        }
-
         public LinkedList(int value)
         {
             CreateListByOneValue(value);
-        }
-
-        private void CreateListByOneValue(int value)
-        {
-            Length = 1;
-            _root = new Node(value);
-            _tail = _root;
         }
 
         public LinkedList(int[] values)
@@ -83,8 +69,6 @@ namespace List
                 _tail = null;
             }
         }
-
-
 
         public void Add(int value)
         {
@@ -402,6 +386,19 @@ namespace List
             }
             return current;
         }
+        private void CreateEmpyList()
+        {
+            Length = 0;
+            _root = null;
+            _tail = _root;
+        }
 
+        private void CreateListByOneValue(int value)
+        {
+            Length = 1;
+            _root = new Node(value);
+            _tail = _root;
+        }
     }
 }
+
