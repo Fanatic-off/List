@@ -40,7 +40,7 @@ namespace List
         {
             Length = 0;
             _root = null;
-            _tail = null;
+            _tail = _root;
         }
 
         public LinkedList(int value)
