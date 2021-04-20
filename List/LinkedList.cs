@@ -260,6 +260,40 @@ namespace List
             return GetIndexByValue(min);
         }
 
+        public void Sort()
+        {
+            int value;
+
+            Node current = _root;
+            Node tmpNext = current.Next;
+
+            for (int i = 0; i < Length; i++)
+            {
+                Node jNode = current.Next;
+                for (int j = i + 1; j < Length; j++)
+                {
+                    if (current.Value > jNode.Value)
+                    {
+                        value = current.Value;
+                        tmpNext.Value = jNode.Value;
+                        tmpNext.Value = value;
+                    }
+                    tmpNext = tmpNext.Next;
+                }
+                current = current.Next;
+            }
+            ////while (tmpNext != null) 
+            ////{
+            ////    tmpNext = current.Next;
+            ////    value = current.Value;
+            ////    min = SearchMinValue(current);
+            ////    minIndex = GetIndexByValue(min);
+            ////    current.Value = min;
+            ////    ChangeValueByIndex(minIndex, value);
+            ////    current = current.Next;
+            ////}
+        }
+
         public override string ToString()
         {
             if (Length != 0)
