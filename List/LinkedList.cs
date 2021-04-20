@@ -85,6 +85,10 @@ namespace List
             Length++;
             Node current = _root;
 
+            if (Length == 0)
+            {
+                CreateListByOneValue(value);
+            }
             if (index == 0)
             {
                 AddToRoot(value);
