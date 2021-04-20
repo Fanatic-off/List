@@ -255,22 +255,22 @@ namespace List
 
         public void Sort()
         {
-            Node iNode = _root;
+            Node current = _root;
             int tmp;
             for (int i = 0; i < Length; i++)
             {
-                Node jNode = iNode.Next;
+                Node tmpNode = current.Next;
                 for (int j = i + 1; j < Length; j++)
                 {
-                    if (iNode.Value > jNode.Value)
+                    if (current.Value > tmpNode.Value)
                     {
-                        tmp = iNode.Value;
-                        iNode.Value = jNode.Value;
-                        jNode.Value = tmp;
+                        tmp = current.Value;
+                        current.Value = tmpNode.Value;
+                        tmpNode.Value = tmp;
                     }
-                    jNode = jNode.Next;
+                    tmpNode = tmpNode.Next;
                 }
-                iNode = iNode.Next;
+                current = current.Next;
             }   
             //while (tmpNext != null) 
             //{
