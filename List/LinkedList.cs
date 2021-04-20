@@ -328,7 +328,6 @@ namespace List
 
         }
 
-
         public override string ToString()
         {
             if (Length != 0)
@@ -349,7 +348,6 @@ namespace List
                 return String.Empty;
             }
         }
-
         public override bool Equals(object obj)
         {
             LinkedList list = (LinkedList)obj;
@@ -357,15 +355,21 @@ namespace List
             {
                 return false;
             }
-
-            Node currentThis = this._root;
-            Node currentList = list._root;
-            if (currentList is null && currentThis is null)
+            if (this.Length == 0)
             {
                 return true;
             }
-
-            while (!(currentThis.Next is null))
+            if (this._tail.Value != list._tail.Value)
+            {
+                return false;
+            }
+            if (!(this._tail.Next is null) || !(list._tail.Next is null))
+            {
+                return false;
+            }
+            Node currentThis = this._root;
+            Node currentList = list._root;
+            do
             {
                 if (currentThis.Value != currentList.Value)
                 {
@@ -374,13 +378,10 @@ namespace List
                 currentList = currentList.Next;
                 currentThis = currentThis.Next;
             }
-            if (currentList.Value != currentThis.Value)
-            {
-                return false;
-            }
+            while (!(currentThis.Next is null));
+
             return true;
         }
-
         private Node SearchCurrentNodeByIndex(int index)
         {
             Node current = _root;
