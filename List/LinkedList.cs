@@ -243,8 +243,19 @@ namespace List
 
         public int SearchIndexOfMaxValue()
         {
-            int max = SearchMaxValue();
-            return GetIndexByValue(max);
+            int max = _root.Value;
+            int index = 0;
+            Node tmp = _root.Next;
+            for (int i = 1; i < Length; i++)
+            {
+                if (max < tmp.Value)
+                {
+                    max = tmp.Value;
+                    index = i;
+                }
+                tmp = tmp.Next;
+            }
+            return index;
         }
 
         public int SearchIndexOfMinValue()
