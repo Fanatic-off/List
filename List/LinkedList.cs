@@ -318,16 +318,19 @@ namespace List
         public override bool Equals(object obj)
         {
             LinkedList list = (LinkedList)obj;
-
-            if(this.Length!=list.Length)
+            if (this.Length != list.Length)
             {
                 return false;
             }
 
             Node currentThis = this._root;
             Node currentList = list._root;
+            if (currentList is null && currentThis is null)
+            {
+                return true;
+            }
 
-            do
+            while (!(currentThis.Next is null))
             {
                 if (currentThis.Value != currentList.Value)
                 {
@@ -335,10 +338,34 @@ namespace List
                 }
                 currentList = currentList.Next;
                 currentThis = currentThis.Next;
-            } 
-            while (!(currentThis.Next is null));
-
+            }
+            if (currentList.Value != currentThis.Value)
+            {
+                return false;
+            }
             return true;
+            //LinkedList list = (LinkedList)obj;
+
+            //if(this.Length!=list.Length)
+            //{
+            //    return false;
+            //}
+
+            //Node currentThis = this._root;
+            //Node currentList = list._root;
+
+            //do
+            //{
+            //    if (currentThis.Value != currentList.Value)
+            //    {
+            //        return false;
+            //    }
+            //    currentList = currentList.Next;
+            //    currentThis = currentThis.Next;
+            //} 
+            //while (!(currentThis.Next is null));
+
+            //return true;
         }
 
         private Node SearchCurrentNodeByIndex(int index)
