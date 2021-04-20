@@ -38,12 +38,22 @@ namespace List
 
         public LinkedList()
         {
+            CreateEmpyList();
+        }
+
+        private void CreateEmpyList()
+        {
             Length = 0;
             _root = null;
             _tail = _root;
         }
 
         public LinkedList(int value)
+        {
+            CreateListByOneValue(value);
+        }
+
+        private void CreateListByOneValue(int value)
         {
             Length = 1;
             _root = new Node(value);
