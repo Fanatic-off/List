@@ -48,25 +48,20 @@ namespace List
 
         public LinkedList(int[] values)
         {
-            //if(values is null)
-
-            Length = values.Length;
-
             if (values.Length != 0)
             {
                 _root = new Node(values[0]);
                 _tail = _root;
-
                 for (int i = 1; i < values.Length; i++)
                 {
                     _tail.Next = new Node(values[i]);
                     _tail = _tail.Next;
                 }
+                Length = values.Length;
             }
             else
             {
-                _root = null;
-                _tail = null;
+                CreateEmpyList();
             }
         }
 
