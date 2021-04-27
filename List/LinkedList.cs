@@ -314,50 +314,25 @@ namespace List
                 current = current.Next;
             }
         }
-
         public int RemoveByValue(int value)
         {
             int index = GetIndexByValue(value);
 
-            RemoveByIndex(index);
-
+            if (index != 0 &&
+                index != Length)
+            {
+                RemoveByIndex(index);
+            }
+            if (index == 0)
+            {
+                _root = _root.Next;
+            }
+            if(index == Length)
+            {
+                RemoveLast();
+            }
             return index;
         }
-        private int[] SearchIndexAndValueMaximumElement()
-        {
-            int indexMaxElement = 0;
-            int maxElement = _root.Value;
-            Node current = _root;
-            for (int i = 0; i < Length; i++)
-            {
-                if (current.Value > maxElement)
-                {
-                    maxElement = current.Value;
-                    indexMaxElement = i;
-                }
-                current = current.Next;
-            }
-            return new int[] { indexMaxElement, maxElement };
-
-        }
-        private int[] SearchIndexAndValueMinimumElement()
-        {
-            int indexMinElement = 0;
-            int minElement = _root.Value;
-            Node current = _root;
-            for (int i = 0; i < Length; i++)
-            {
-                if (current.Value < minElement)
-                {
-                    minElement = current.Value;
-                    indexMinElement = i;
-                }
-                current = current.Next;
-            }
-            return new int[] { indexMinElement, minElement };
-
-        }
-
         public override string ToString()
         {
             if (Length != 0)
@@ -422,13 +397,46 @@ namespace List
             }
             return current;
         }
+        private int[] SearchIndexAndValueMaximumElement()
+        {
+            int indexMaxElement = 0;
+            int maxElement = _root.Value;
+            Node current = _root;
+            for (int i = 0; i < Length; i++)
+            {
+                if (current.Value > maxElement)
+                {
+                    maxElement = current.Value;
+                    indexMaxElement = i;
+                }
+                current = current.Next;
+            }
+            return new int[] { indexMaxElement, maxElement };
+
+        }
+        private int[] SearchIndexAndValueMinimumElement()
+        {
+            int indexMinElement = 0;
+            int minElement = _root.Value;
+            Node current = _root;
+            for (int i = 0; i < Length; i++)
+            {
+                if (current.Value < minElement)
+                {
+                    minElement = current.Value;
+                    indexMinElement = i;
+                }
+                current = current.Next;
+            }
+            return new int[] { indexMinElement, minElement };
+
+        }
         private void CreateEmpyList()
         {
             Length = 0;
             _root = null;
             _tail = _root;
         }
-
         private void CreateListByOneValue(int value)
         {
             Length = 1;
