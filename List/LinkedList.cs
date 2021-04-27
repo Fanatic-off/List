@@ -118,12 +118,27 @@ namespace List
 
         public void RemoveByIndex(int index)
         {
-            Node current = _root;
-
             SearchCurrentNodeByIndex(index);
 
-            current.Next = current.Next.Next;
-
+            if (Length == 1)
+            {
+                CreateEmpyList();
+            }
+            if (index == 0)
+            {
+                _root = _root.Next;
+            }
+            if (index == Length - 1)
+            {
+                Node current = SearchCurrentNodeByIndex(index - 1);
+                current.Next = null;
+                _tail = current;
+            }
+            else
+            {
+                Node current = SearchCurrentNodeByIndex(index - 1);
+                current.Next = current.Next.Next;
+            }
             Length--;
         }
 
