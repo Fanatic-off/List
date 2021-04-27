@@ -7,7 +7,7 @@ namespace List.Tests
         [TestCase(new int[] { 1, 2, 3 }, 4, new int[] { 1, 2, 3, 4 })]
         [TestCase(new int[] { 5, 8, 22 }, 436, new int[] { 5, 8, 22, 436 })]
         [TestCase(new int[] { 33, -567, 9021 }, -55, new int[] { 33, -567, 9021, -55 })]
-        public void AddTests(int[] arrayActual,int value, int[] arrayExpected)
+        public void AddTests(int[] arrayActual, int value, int[] arrayExpected)
         {
             LinkedList expected = new LinkedList(arrayExpected);
             LinkedList actual = new LinkedList(arrayActual);
@@ -20,7 +20,7 @@ namespace List.Tests
         [TestCase(new int[] { 1, 2, 3 }, 4, new int[] { 4, 1, 2, 3 })]
         [TestCase(new int[] { 5, 8, 22 }, 436, new int[] { 436, 5, 8, 22 })]
         [TestCase(new int[] { 33, -567, 9021 }, -55, new int[] { -55, 33, -567, 9021 })]
-        public void AddToRootTests(int[] arrayActual,int value, int[] arrayExpected)
+        public void AddToRootTests(int[] arrayActual, int value, int[] arrayExpected)
         {
             LinkedList expected = new LinkedList(arrayExpected);
             LinkedList actual = new LinkedList(arrayActual);
@@ -33,7 +33,7 @@ namespace List.Tests
         //[TestCase(new int[] { 1, 2, 3 }, 4, 0, new int[] { 4, 1, 2, 3 })]
         [TestCase(new int[] { 5, 8, 22 }, 436, 2, new int[] { 5, 8, 436, 22 })]
         [TestCase(new int[] { 33, -567, 9021 }, -55, 3, new int[] { 33, -567, 9021, -55 })]
-        public void AddByIndexTests(int[] arrayActual,int value,int index, int[] arrayExpected)
+        public void AddByIndexTests(int[] arrayActual, int value, int index, int[] arrayExpected)
         {
             LinkedList expected = new LinkedList(arrayExpected);
             LinkedList actual = new LinkedList(arrayActual);
@@ -58,7 +58,7 @@ namespace List.Tests
 
         [TestCase(new int[] { 1, 2, 3, 5 }, 0, new int[] { 1, 2, 3, 5 })]
         [TestCase(new int[] { 5, 8, 22 }, 1, new int[] { 5, 8 })]
-        [TestCase(new int[] { 33, -567, 9021, 34, -66, -3243 },4, new int[] { 33, -567 })]
+        [TestCase(new int[] { 33, -567, 9021, 34, -66, -3243 }, 4, new int[] { 33, -567 })]
         public void RemoveLastSeveralElementsTests(int[] arrayActual, int number, int[] arrayExpected)
         {
             LinkedList expected = new LinkedList(arrayExpected);
@@ -194,6 +194,43 @@ namespace List.Tests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestCase(new int[] { 1, 2, 3, 5 }, new int[] { 5, 3, 2, 1 })]
+        [TestCase(new int[] { 5, -7, 22 }, new int[] { 22, 5, -7 })]
+        [TestCase(new int[] { 33, -567, 34, -66, 90213 }, new int[] { 90213, 34, 33, -66, -567 })]
+        public void SortReverseTests(int[] arrayActual, int[] arrayExpected)
+        {
+            LinkedList actual = new LinkedList(arrayActual);
+            LinkedList expected = new LinkedList(arrayExpected);
+
+            actual.SortReverse();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCase(new int[] { 1, 2, 3, 5 }, 1, 0)]
+        [TestCase(new int[] { 5, 8, 22 }, 8, 1)]
+        [TestCase(new int[] { 33, -567, 9021, 34, -66, -3243 }, 9021, 2)]
+        public void RemoveByValueTests(int[] arrayActual, int value, int expected)
+        {
+            LinkedList actualList = new LinkedList(arrayActual);
+
+            int actual = actualList.RemoveByValue(value);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCase(new int[] { 1, 2, 3, 5 }, 1, new int[] { 2, 3, 5 })]
+        [TestCase(new int[] { 5, 8, 22 }, 8, new int[] { 5, 22 })]
+        [TestCase(new int[] { 33, -567, 9021, 34, -66, -3243 }, 9021, new int[] { 33, -567,  34, -66, -3243 })]
+        public void RemoveByValueChekListTests(int[] arrayActual, int value, int[] arrayExpected)
+        {
+            LinkedList actual = new LinkedList(arrayActual);
+            LinkedList expected = new LinkedList(arrayExpected);
+
+            actual.RemoveByValue(value);
+
+            Assert.AreEqual(expected, actual);
+        }
 
 
 
