@@ -294,6 +294,28 @@ namespace List
             //    current = current.Next;
             //}
         }
+        public void SortReverse()
+        {
+            Node current = _root;
+            int tmp;
+            for (int i = 0; i < Length; i++)
+            {
+                Node tmpNode = current.Next;
+                for (int j = i + 1; j < Length; j++)
+                {
+                    if (tmpNode.Value > current.Value)
+                    {
+                        tmp = current.Value;
+                        current.Value = tmpNode.Value;
+                        tmpNode.Value = tmp;
+                    }
+                    tmpNode = tmpNode.Next;
+                }
+                current = current.Next;
+            }
+
+        }
+
         private int[] SearchIndexAndValueMaximumElement()
         {
             int indexMaxElement = 0;
