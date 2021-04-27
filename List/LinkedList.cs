@@ -11,9 +11,9 @@ namespace List
         {
             get
             {
-                Node current=_root;
+                Node current = _root;
 
-                for(int i=1;i<=index; i++)
+                for (int i = 1; i <= index; i++)
                 {
                     current = current.Next;
                 }
@@ -131,7 +131,7 @@ namespace List
         {
             if (number < Length)
             {
-                for(int i = 0; i < number; i++)
+                for (int i = 0; i < number; i++)
                 {
                     RemoveLast();
                 }
@@ -142,7 +142,7 @@ namespace List
         {
             if (number < Length)
             {
-                for(int i = 0; i < number; i++)
+                for (int i = 0; i < number; i++)
                 {
                     RemoveFirst();
                 }
@@ -152,11 +152,11 @@ namespace List
         public void RemoveByIndexSeveralElements(int index, int number)
         {
 
-            if ((number < Length)&&
-                (index < Length - 1)&&
+            if ((number < Length) &&
+                (index < Length - 1) &&
                 (index != 0))
             {
-                for(int i = 0; i < number; i++)
+                for (int i = 0; i < number; i++)
                 {
                     RemoveByIndex(index);
                 }
@@ -282,7 +282,7 @@ namespace List
                     tmpNode = tmpNode.Next;
                 }
                 current = current.Next;
-            }   
+            }
             //while (tmpNext != null) 
             //{
             //    tmpNext = current.Next;
@@ -313,9 +313,16 @@ namespace List
                 }
                 current = current.Next;
             }
-
         }
 
+        public int RemoveByValue(int value)
+        {
+            int index = GetIndexByValue(value);
+
+            RemoveByIndex(index);
+
+            return index;
+        }
         private int[] SearchIndexAndValueMaximumElement()
         {
             int indexMaxElement = 0;
