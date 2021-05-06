@@ -335,8 +335,22 @@ namespace List
             if(index == Length)
             {
                 RemoveLast();
+                Length--;
             }
             return index;
+        }
+        public int RemoveByValueAllIndex(int value)
+        {
+            int index = GetIndexByValue(value);
+            int count = 0;
+
+            while (index != -1)
+            {
+                RemoveByValue(value);
+                index = GetIndexByValue(value);
+                count++;
+            }
+            return count;
         }
         public override string ToString()
         {
