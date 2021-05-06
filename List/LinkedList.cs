@@ -298,16 +298,6 @@ namespace List
                 }
                 current = current.Next;
             }
-            //while (tmpNext != null) 
-            //{
-            //    tmpNext = current.Next;
-            //    value = current.Value;
-            //    min = SearchMinValue(current);
-            //    minIndex = GetIndexByValue(min);
-            //    current.Value = min;
-            //    ChangeValueByIndex(minIndex, value);
-            //    current = current.Next;
-            //}
         }
         public void SortReverse()
         {
