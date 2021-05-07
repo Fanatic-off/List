@@ -8,8 +8,20 @@ namespace List
     {
         public int Length { get; private set; }
 
-        private Node _root;
-        private Node _tail;
+        private DoubleNode _root;
+        private DoubleNode _tail;
 
+        private void CreateEmptyList()
+        {
+            Length = 0;
+            _root = null;
+            _tail = _root;
+        }
+        private void CreateListWithOneElement(int value)
+        {
+            Length = 1;
+            _root = new DoubleNode(value);
+            _tail = _root;
+        }
     }
 }
