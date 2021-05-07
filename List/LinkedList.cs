@@ -335,7 +335,6 @@ namespace List
             if(index == Length)
             {
                 RemoveLast();
-                Length--;
             }
             return index;
         }
@@ -351,6 +350,37 @@ namespace List
                 count++;
             }
             return count;
+        }
+        public void AddLinkedList(LinkedList list)
+        {
+            Length += list.Length;
+            _tail.Next = list._root;
+        }
+        public void AddLinkedListAtHead(LinkedList list)
+        {
+            Length += list.Length;
+            Node temp = _root;
+            _root = list._root;
+            list._tail.Next = temp;
+        }
+        public void AddLinkedListByIndex(LinkedList list, int index)
+        {
+            if (index == 0)
+            {
+                AddLinkedListAtHead(list);
+            }
+            if (index == Length||
+                index > Length)
+            {
+                AddLinkedList(list);
+            }
+            else
+            {
+                Node temp = SearchCurrentNodeByIndex(index);
+                Node tempNext = temp.Next;
+                temp.Next = list._root;
+                list._tail.Next = tempNext;
+            }
         }
         public override string ToString()
         {
