@@ -7,30 +7,25 @@ namespace List
     public class ArrayList
     {
         public int Lenght { get; private set; }
-        
+
         private int[] _array;
-        private int i;
 
         public ArrayList()
         {
             Lenght = 0;
             _array = new int[10];
         }
-
         public ArrayList(int lenght = 10)
         {
             Lenght = 0;
             _array = new int[lenght];
         }
-
         public ArrayList(int[] array)
         {
             Lenght = array.Length;
             _array = new int[(int)(array.Length * 1.33)];
             CopyArray(array);
         }
-
-
         public void Add(int value)
         {
             if (Lenght == _array.Length)
@@ -40,7 +35,6 @@ namespace List
             _array[Lenght] = value;
             Lenght++;
         }
-
         public void AddToStart(int value)
         {
             int[] result = new int[Lenght + 1];
@@ -51,11 +45,10 @@ namespace List
             }
             CopyArray(result);
         }
-
         public void AddValueByIndex(int index, int value)
         {
             int[] result = new int[Lenght + 1];
-            for(int i = 0; i < Lenght; i++)
+            for (int i = 0; i < Lenght; i++)
             {
                 if (i < index)
                 {
@@ -69,11 +62,10 @@ namespace List
             result[index] = value;
             CopyArray(result);
         }
-
         public ArrayList AddArrayList(ArrayList arrayList)
         {
             ArrayList result = new ArrayList(_array.Length + arrayList.Lenght);
-            for(int i = 0; i < result.Lenght; i++)
+            for (int i = 0; i < result.Lenght; i++)
             {
                 if (i < Lenght)
                 {
@@ -86,7 +78,6 @@ namespace List
             }
             return result;
         }
-
         public ArrayList AddArrayListToBegin(ArrayList arrayList)
         {
             ArrayList result = new ArrayList(_array.Length + arrayList.Lenght);
@@ -100,11 +91,10 @@ namespace List
             }
             return result;
         }
-
         public ArrayList AddArrayListByIndex(ArrayList arrayList, int index)
         {
             int newLenght = _array.Length + arrayList.Lenght;
-            if ((Lenght < index)&&
+            if ((Lenght < index) &&
                 (index < -1))
             {
                 throw new Exception("Invalid index");
@@ -120,9 +110,6 @@ namespace List
             }
             return result;
         }
-
-
-
         public void Remove()
         {
             if (0 < Lenght)
@@ -130,7 +117,6 @@ namespace List
                 Lenght--;
             }
         }
-
         public void RemoveFromBegining()
         {
             int[] result = new int[Lenght = Lenght - 1];
@@ -148,7 +134,6 @@ namespace List
             }
             CopyArray(result);
         }
-
         public void RemoveByIndex(int index)
         {
             if (1 < Lenght)
@@ -169,7 +154,6 @@ namespace List
                 CopyArray(result);
             }
         }
-
         public void RemoveSeveralElementsFromTheEnd(int number)
         {
             if (number < Lenght)
@@ -180,7 +164,6 @@ namespace List
                 }
             }
         }
-
         public void RemoveSeveralElementsFromTheBegin(int number)
         {
             if (number < Lenght)
@@ -193,7 +176,6 @@ namespace List
                 CopyArray(result);
             }
         }
-
         public void RemoveSeveralElementsByIndex(int index, int number)
         {
             if (number < Lenght)
@@ -213,7 +195,6 @@ namespace List
                 CopyArray(result);
             }
         }
-
         public int AccessByIndex(int index)
         {
             if (0 <= index && index <= Lenght)
@@ -221,20 +202,18 @@ namespace List
                 return _array[index];
             }
             return -1;
-        }   
-
+        }
         public int AccessFirstIndexByValue(int value)
         {
             for (int i = 0; i < Lenght; i++)
             {
-                if(value == _array[i])
+                if (value == _array[i])
                 {
                     return i;
                 }
             }
             return -1;
         }
-
         public void ChangeValueByIndex(int index, int value)
         {
             if ((0 <= index) && (index < Lenght))
@@ -246,17 +225,15 @@ namespace List
                 throw new Exception("Invalid index");
             }
         }
-
         public void Reverse()
         {
             int[] result = new int[Lenght];
-            for(int i = 0; i < Lenght; i++)
+            for (int i = 0; i < Lenght; i++)
             {
                 result[Lenght - i - 1] = _array[i];
             }
             CopyArray(result);
         }
-
         public int SearchMaxValue()
         {
             int Max = _array[0];
@@ -269,7 +246,6 @@ namespace List
             }
             return Max;
         }
-
         public int SearchMinValue()
         {
             int Min = _array[0];
@@ -282,7 +258,6 @@ namespace List
             }
             return Min;
         }
-
         public int SearchIndexOfMaxValue()
         {
             int Max = _array[0];
@@ -297,7 +272,6 @@ namespace List
             }
             return index;
         }
-
         public int SearchIndexOfMinValue()
         {
             int Min = _array[0];
@@ -313,13 +287,12 @@ namespace List
             }
             return index;
         }
-
         public int[] Sort()
         {
-            for(int i = 0; i < Lenght; i++)
+            for (int i = 0; i < Lenght; i++)
             {
                 int min = _array[i];
-                for(int j = i; j < Lenght; j++)
+                for (int j = i; j < Lenght; j++)
                 {
                     if (_array[j] < min)
                     {
@@ -331,7 +304,6 @@ namespace List
             }
             return _array;
         }
-
         public int[] SortReverse()
         {
             for (int i = 0; i < Lenght; i++)
@@ -349,7 +321,6 @@ namespace List
             }
             return _array;
         }
-
         public int RemoveByValue(int value)
         {
             int index = -1;
@@ -378,7 +349,6 @@ namespace List
             }
             return index;
         }
-
         public int RemoveByValueAllIndex(int value)
         {
             int count = 0;
@@ -391,7 +361,6 @@ namespace List
             }
             return count;
         }
-
         public override bool Equals(object obj)
         {
             ArrayList arrayList = (ArrayList)obj;
@@ -406,17 +375,15 @@ namespace List
             }
             return b;
         }
-
         public override string ToString()
         {
             String result = "";
             for (int i = 0; i < _array.Length; i++)
             {
-                result += _array[i] + " "; 
+                result += _array[i] + " ";
             }
             return result;
         }
-
         private void CopyArray(int[] array)
         {
             _array = new int[array.Length];
@@ -426,12 +393,11 @@ namespace List
                 _array[i] = array[i];
             }
         }
-
         private void UpSize()
         {
             int newLenght = (int)(_array.Length * 1.33 + 1);
             int[] result = new int[newLenght];
-            for (int i = 0; i < _array.Length; i++) 
+            for (int i = 0; i < _array.Length; i++)
             {
                 result[i] = _array[i];
             }

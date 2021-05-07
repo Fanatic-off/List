@@ -35,17 +35,14 @@ namespace List
 
         private Node _root;
         private Node _tail;
-
         public LinkedList()
         {
             CreateEmpyList();
         }
-
         public LinkedList(int value)
         {
             CreateListByOneValue(value);
         }
-
         public LinkedList(int[] values)
         {
             if (values.Length != 0)
@@ -64,14 +61,12 @@ namespace List
                 CreateEmpyList();
             }
         }
-
         public void Add(int value)
         {
             Length++;
             _tail.Next = new Node(value);
             _tail = _tail.Next;
         }
-
         public void AddToRoot(int value)
         {
             Length++;
@@ -79,12 +74,10 @@ namespace List
             _root = new Node(value);
             _root.Next = tmp;
         }
-
         public void AddByIndex(int value, int index)
         {
             Length++;
             Node current = _root;
-
             if (Length == 0)
             {
                 CreateListByOneValue(value);
@@ -103,23 +96,19 @@ namespace List
                 current.Next = tmpTail;
             }
         }
-
         public void RemoveLast()
         {
             Length--;
             _tail = SearchCurrentNodeByIndex(Length - 1);
             _tail.Next = null;
         }
-
         public void RemoveFirst()
         {
             _root = _root.Next;
         }
-
         public void RemoveByIndex(int index)
         {
             SearchCurrentNodeByIndex(index);
-
             if (Length == 1)
             {
                 CreateEmpyList();
@@ -141,7 +130,6 @@ namespace List
             }
             Length--;
         }
-
         public void RemoveLastSeveralElements(int number)
         {
             if (number < Length)
@@ -152,7 +140,6 @@ namespace List
                 }
             }
         }
-
         public void RemoveFirstSeveralElements(int number)
         {
             if (number < Length)
@@ -163,10 +150,8 @@ namespace List
                 }
             }
         }
-
         public void RemoveByIndexSeveralElements(int index, int number)
         {
-
             if ((number < Length) &&
                 (index < Length - 1) &&
                 (index != 0))
@@ -181,12 +166,10 @@ namespace List
                 RemoveFirst();
             }
         }
-
         public int GetIndexByValue(int value)
         {
             Node current = _root;
             int index = 0;
-
             do
             {
                 if (current.Value == value)
@@ -199,21 +182,17 @@ namespace List
             while (!(current.Next is null));
             return -1;
         }
-
         public void ChangeValueByIndex(int index, int value)
         {
             Node current = _root;
-
             current = SearchCurrentNodeByIndex(index);
             current.Value = value;
         }
-
         public void Reverse()
         {
             Node current = _root;
             Node previous = null;
             Node tmpNext = null;
-
             while (current != null)
             {
                 tmpNext = current.Next;
@@ -223,12 +202,10 @@ namespace List
             }
             _root = previous;
         }
-
         public int SearchMaxValue()
         {
             Node current = _root;
             int max = current.Value;
-
             for (int i = 0; i < Length; i++)
             {
                 if (max < current.Value)
@@ -239,12 +216,10 @@ namespace List
             }
             return max;
         }
-
         public int SearchMinValue()
         {
             Node current = _root;
             int min = current.Value;
-
             for (int i = 0; i < Length; i++)
             {
                 if (current.Value < min)
@@ -255,7 +230,6 @@ namespace List
             }
             return min;
         }
-
         public int SearchIndexOfMaxValue()
         {
             int max = _root.Value;
@@ -272,13 +246,11 @@ namespace List
             }
             return index;
         }
-
         public int SearchIndexOfMinValue()
         {
             int min = SearchMinValue();
             return GetIndexByValue(min);
         }
-
         public void Sort()
         {
             Node current = _root;
@@ -322,7 +294,6 @@ namespace List
         public int RemoveByValue(int value)
         {
             int index = GetIndexByValue(value);
-
             if (index != 0 &&
                 index != Length)
             {
@@ -332,7 +303,7 @@ namespace List
             {
                 _root = _root.Next;
             }
-            if(index == Length)
+            if (index == Length)
             {
                 RemoveLast();
             }
@@ -342,7 +313,6 @@ namespace List
         {
             int index = GetIndexByValue(value);
             int count = 0;
-
             while (index != -1)
             {
                 RemoveByValue(value);
@@ -369,7 +339,7 @@ namespace List
             {
                 AddLinkedListAtHead(list);
             }
-            if (index == Length||
+            if (index == Length ||
                 index > Length)
             {
                 AddLinkedList(list);
@@ -388,13 +358,11 @@ namespace List
             {
                 Node current = _root;
                 string s = current.Value + " ";
-
                 while (!(current.Next is null))
                 {
                     current = current.Next;
                     s += current.Value + " ";
                 }
-
                 return s;
             }
             else
@@ -433,13 +401,11 @@ namespace List
                 currentThis = currentThis.Next;
             }
             while (!(currentThis.Next is null));
-
             return true;
         }
         private Node SearchCurrentNodeByIndex(int index)
         {
             Node current = _root;
-
             for (int i = 0; i < index; i++)
             {
                 current = current.Next;
@@ -461,7 +427,6 @@ namespace List
                 current = current.Next;
             }
             return new int[] { indexMaxElement, maxElement };
-
         }
         private int[] SearchIndexAndValueMinimumElement()
         {
@@ -478,7 +443,6 @@ namespace List
                 current = current.Next;
             }
             return new int[] { indexMinElement, minElement };
-
         }
         private void CreateEmpyList()
         {
