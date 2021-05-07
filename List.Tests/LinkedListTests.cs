@@ -219,6 +219,19 @@ namespace List.Tests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestCase(new int[] { 1, 1, 2, 3, 5 }, 1, 2)]
+        [TestCase(new int[] { 5, 8, 8, 8, 8, 22 }, 8, 4)]
+        [TestCase(new int[] { 33, -567, 9021, 34, -66, -3243, -3243, -3243 }, -3243, 3)]
+        public void RemoveByValueAllIndexTests(int[] arrayActual, int value, int expected)
+        {
+            LinkedList actualList = new LinkedList(arrayActual);
+
+            int actual = actualList.RemoveByValueAllIndex(value);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+
         [TestCase(new int[] { 1, 2, 3, 5 }, 1, new int[] { 2, 3, 5 })]
         [TestCase(new int[] { 5, 8, 22 }, 8, new int[] { 5, 22 })]
         [TestCase(new int[] { 33, -567, 9021, 34, -66, -3243 }, 9021, new int[] { 33, -567,  34, -66, -3243 })]
@@ -231,6 +244,49 @@ namespace List.Tests
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestCase(new int[] { 1, 2, 3, 5 }, new int[] { 6, 7, 8, 9 }, new int[] { 1, 2, 3, 5, 6, 7, 8, 9 })]
+        [TestCase(new int[] { 5 }, new int[] { 3, 5 }, new int[] { 5, 3, 5 })]
+        [TestCase(new int[] { 33 }, new int[] { -3, 5 }, new int[] { 33, -3, 5 })]
+        public void AddLinkedListTests(int[] arrayActual, int[] arrayValue, int[] arrayExpected)
+        {
+            LinkedList actual = new LinkedList(arrayActual);
+            LinkedList value = new LinkedList(arrayValue);
+            LinkedList expected = new LinkedList(arrayExpected);
+
+            actual.AddLinkedList(value);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCase(new int[] { 6, 7, 8, 9 }, new int[] { 1, 2, 3, 5 }, new int[] { 1, 2, 3, 5, 6, 7, 8, 9 })]
+        [TestCase(new int[] { 5 }, new int[] { 3, 5 }, new int[] { 3, 5, 5 })]
+        [TestCase(new int[] { 33 }, new int[] { -3, 5 }, new int[] { -3, 5, 33 })]
+        public void AddLinkedListAtHeadTests(int[] arrayActual, int[] arrayValue, int[] arrayExpected)
+        {
+            LinkedList actual = new LinkedList(arrayActual);
+            LinkedList value = new LinkedList(arrayValue);
+            LinkedList expected = new LinkedList(arrayExpected);
+
+            actual.AddLinkedListAtHead(value);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        //[TestCase(new int[] { 6, 7, 8, 9 }, new int[] { 1, 2, 3, 5 }, 0, new int[] { 1, 2, 3, 5, 6, 7, 8, 9 })]
+        [TestCase(new int[] { 5 }, new int[] { 3, 5 }, 1, new int[] { 5, 3, 5 })]
+        [TestCase(new int[] { 33, 34, 35 }, new int[] { -3, 5 }, 1, new int[] { 33, 34, -3, 5, 35 })]
+        public void AddLinkedListByIndexTests(int[] arrayActual, int[] arrayValue, int value, int[] arrayExpected)
+        {
+            LinkedList actual = new LinkedList(arrayActual);
+            LinkedList valueList = new LinkedList(arrayValue);
+            LinkedList expected = new LinkedList(arrayExpected);
+
+            actual.AddLinkedListByIndex(valueList, value);
+
+            Assert.AreEqual(expected, actual);
+        }
+
 
 
 
