@@ -12,23 +12,19 @@ namespace List
             get
             {
                 Node current = _root;
-
                 for (int i = 1; i <= index; i++)
                 {
                     current = current.Next;
                 }
                 return current.Value;
             }
-
             set
             {
                 Node current = _root;
-
                 for (int i = 1; i <= index; i++)
                 {
                     current = current.Next;
                 }
-
                 current.Value = value;
             }
         }
