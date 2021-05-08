@@ -235,9 +235,17 @@ namespace List
         }
         private void CheckListHasEnoughElementsOrNotEmpty(int count)
         {
-            if (count > Length || Length == 0)
+            if (count > Length || 
+                Length == 0)
             {
                 throw new Exception("Removing more elements than left in array");
+            }
+        }
+        private void CheckArgumentIsNotNull(DoubleLinkedList list)
+        {
+            if (list is null)
+            {
+                throw new NullReferenceException();
             }
         }
     }
