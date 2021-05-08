@@ -160,12 +160,11 @@ namespace List
             {
                 throw new Exception($"Removing more elements than left in array from index {index}");
             }
-
             if (Length == count)
             {
                 CreateEmptyList();
             }
-            else if (index == 0)
+            if (index == 0)
             {
                 _root = GetNodeByIndex(count);
                 _root.Prev = null;
