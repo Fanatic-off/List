@@ -94,5 +94,12 @@ namespace List
                 throw new IndexOutOfRangeException();
             }
         }
+        private void CheckArrayIsNotEmpty()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("This array is empty");
+            }
+        }
     }
 }
