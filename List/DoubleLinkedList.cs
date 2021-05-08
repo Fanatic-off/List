@@ -98,6 +98,39 @@ namespace List
                 Length++;
             }
         }
+        public void Remove()
+        {
+            RemoveByIndex(Length - 1);
+        }
+        public void RemoveAtFirstIndex()
+        {
+            RemoveByIndex(0);
+        }
+        public void RemoveByIndex(int index)
+        {
+            CheckIndex(index);
+            CheckArrayIsNotEmpty();
+            if (Length == 1)
+            {
+                CreateEmptyList();
+            }
+            else if (index == 0)
+            {
+                _root = _root.Next;
+                _root.Prev = null;
+            }
+            else if (index == Length - 1)
+            {
+                _tail = _tail.Prev;
+                _tail.Next = null;
+            }
+            else
+            {
+                GetNodeByIndex(index).Prev.Next = GetNodeByIndex(index).Next;
+                GetNodeByIndex(index).Next.Prev = GetNodeByIndex(index).Prev;
+            }
+            Length = Length == 0 ? 0 : --Length;
+        }
         public override bool Equals(object obj)
         {
             DoubleLinkedList list = (DoubleLinkedList)obj;
