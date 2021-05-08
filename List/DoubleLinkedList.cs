@@ -131,6 +131,11 @@ namespace List
             }
             Length = Length == 0 ? 0 : --Length;
         }
+        public int GetLength()
+        {
+            return this.Length;
+        }
+
         public override bool Equals(object obj)
         {
             DoubleLinkedList list = (DoubleLinkedList)obj;
