@@ -10,7 +10,22 @@ namespace List
 
         private DoubleNode _root;
         private DoubleNode _tail;
-
+        public override string ToString()
+        {
+            string s = "";
+            if (Length != 0)
+            {
+                DoubleNode current = _root;
+                s += current.Value;
+                while (!(current.Next is null))
+                {
+                    current = current.Next;
+                    s += " " + current.Value;
+                }
+                return s;
+            }
+            return s;
+        }
         private void CreateEmptyList()
         {
             Length = 0;
