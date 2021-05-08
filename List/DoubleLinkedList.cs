@@ -248,5 +248,14 @@ namespace List
                 throw new NullReferenceException();
             }
         }
+        private DoubleLinkedList CopyList(DoubleLinkedList list)
+        {
+            DoubleLinkedList copy = new DoubleLinkedList();
+            for (int i = 0; i < list.GetLength(); i++)
+            {
+                copy.Add(list[i]);
+            }
+            return copy;
+        }
     }
 }
