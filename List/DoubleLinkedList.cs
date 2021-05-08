@@ -87,5 +87,12 @@ namespace List
                 return current;
             }
         }
+        private void CheckIndex(int index)
+        {
+            if (index >= Length || index < 0)
+            {
+                throw new IndexOutOfRangeException();
+            }
+        }
     }
 }
