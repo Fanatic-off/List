@@ -233,5 +233,12 @@ namespace List
                 throw new ArgumentException("Invalid input");
             }
         }
+        private void CheckListHasEnoughElementsOrNotEmpty(int count)
+        {
+            if (count > Length || Length == 0)
+            {
+                throw new Exception("Removing more elements than left in array");
+            }
+        }
     }
 }
