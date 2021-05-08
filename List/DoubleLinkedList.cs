@@ -66,5 +66,26 @@ namespace List
             _root = new DoubleNode(value);
             _tail = _root;
         }
+        private DoubleNode GetNodeByIndex(int index)
+        {
+            if (index < Length / 2) 
+            {
+                DoubleNode current = _root;
+                for (int i = 1; i <= index; i++)
+                {
+                    current = current.Next;
+                }
+                return current;
+            }
+            else
+            {
+                DoubleNode current = _tail;
+                for (int i = Length - 2; i >= index; i--)
+                {
+                    current = current.Prev;
+                }
+                return current;
+            }
+        }
     }
 }
