@@ -10,6 +10,34 @@ namespace List
 
         private DoubleNode _root;
         private DoubleNode _tail;
+        public override bool Equals(object obj)
+        {
+            DoubleLinkedList list = (DoubleLinkedList)obj;
+            if (Length != list.Length)
+            {
+                return false;
+            }
+            if (Length == 0 && list.Length == 0)
+            {
+                return true;
+            }
+            DoubleNode currentThis = _root;
+            DoubleNode currentList = list._root;
+            if (currentThis.Value != currentList.Value)
+            {
+                return false;
+            }
+            while (!(currentThis.Next is null))
+            {
+                currentList = currentList.Next;
+                currentThis = currentThis.Next;
+                if (currentThis.Value != currentList.Value)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         public override string ToString()
         {
             string s = "";
