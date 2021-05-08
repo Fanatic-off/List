@@ -10,6 +10,19 @@ namespace List
 
         private DoubleNode _root;
         private DoubleNode _tail;
+        public int this[int index]
+        {
+            get
+            {
+                CheckIndex(index);
+                return GetNodeByIndex(index).Value;
+            }
+            set
+            {
+                CheckIndex(index);
+                GetNodeByIndex(index).Value = value;
+            }
+        }
         public override bool Equals(object obj)
         {
             DoubleLinkedList list = (DoubleLinkedList)obj;
@@ -68,7 +81,7 @@ namespace List
         }
         private DoubleNode GetNodeByIndex(int index)
         {
-            if (index < Length / 2) 
+            if (index < Length / 2)
             {
                 DoubleNode current = _root;
                 for (int i = 1; i <= index; i++)
