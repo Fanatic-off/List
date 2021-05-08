@@ -135,7 +135,6 @@ namespace List
         {
             return this.Length;
         }
-
         public override bool Equals(object obj)
         {
             DoubleLinkedList list = (DoubleLinkedList)obj;
@@ -225,6 +224,13 @@ namespace List
             if (Length == 0)
             {
                 throw new Exception("This array is empty");
+            }
+        }
+        private void CheckCountArgumentIsValid(int count)
+        {
+            if (count < 0)
+            {
+                throw new ArgumentException("Invalid input");
             }
         }
     }
