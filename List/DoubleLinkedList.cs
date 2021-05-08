@@ -131,6 +131,62 @@ namespace List
             }
             Length = Length == 0 ? 0 : --Length;
         }
+        public void RemoveLastValues(int count)
+        {
+            CheckCountArgumentIsValid(count);
+            CheckListHasEnoughElementsOrNotEmpty(count);
+            if (Length == count)
+            {
+                CreateEmptyList();
+            }
+            if (count > 0)
+            {
+                int index = Length - count;
+                _tail = GetNodeByIndex(index).Prev;
+                _tail.Next = null;
+                Length -= count;
+            }
+        }
+        public void RemoveFirstValues(int count)
+        {
+            RemoveValuesByIndex(0, count);
+        }
+        public void RemoveValuesByIndex(int index, int count)
+        {
+            CheckCountArgumentIsValid(count);
+            CheckIndex(index);
+            CheckListHasEnoughElementsOrNotEmpty(count);
+            if (Length - index < count)
+            {
+                throw new Exception($"Removing more elements than left in array from index {index}");
+            }
+
+            if (Length == count)
+            {
+                CreateEmptyList();
+            }
+            else if (index == 0)
+            {
+                _root = GetNodeByIndex(count);
+                _root.Prev = null;
+                Length -= count;
+            }
+            else
+            {
+                if (Length - index == count)
+                {
+                    _tail = GetNodeByIndex(index).Prev;
+                    _tail.Next = null;
+                }
+                else if (count > 0)
+                {
+                    int lastIndex = index + count;
+                    GetNodeByIndex(lastIndex).Prev = GetNodeByIndex(index).Prev;
+                    GetNodeByIndex(index).Prev.Next = GetNodeByIndex(lastIndex);
+                }
+                Length -= count;
+            }
+        }
         public int GetLength()
         {
             return this.Length;
@@ -235,7 +291,7 @@ namespace List
         }
         private void CheckListHasEnoughElementsOrNotEmpty(int count)
         {
-            if (count > Length || 
+            if (count > Length ||
                 Length == 0)
             {
                 throw new Exception("Removing more elements than left in array");
