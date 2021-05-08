@@ -201,6 +201,23 @@ namespace List
             }
             return -1;
         }
+        public void Reverse()
+        {
+            DoubleNode current = _root;
+            DoubleNode tmp = null;
+            while (!(current is null))
+            {
+                tmp = current.Prev;
+                current.Prev = current.Next;
+                current.Next = tmp;
+                current = current.Prev;
+            }
+            if (!(tmp is null))
+            {
+                _tail = GetNodeByIndex(0);
+                _root = tmp.Prev;
+            }
+        }
         public override bool Equals(object obj)
         {
             DoubleLinkedList list = (DoubleLinkedList)obj;
