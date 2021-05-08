@@ -23,6 +23,37 @@ namespace List
                 GetNodeByIndex(index).Value = value;
             }
         }
+        public DoubleLinkedList()
+        {
+            CreateEmptyList();
+        }
+        public DoubleLinkedList(int value)
+        {
+            CreateListWithOneElement(value);
+        }
+        public DoubleLinkedList(int[] array)
+        {
+            if (array is null)
+            {
+                throw new NullReferenceException();
+            }
+            if (array.Length > 0)
+            {
+                CreateListWithOneElement(array[0]);
+                for (int i = 1; i < array.Length; i++)
+                {
+                    if (i == 1)
+                    {
+                        _root.Next = new DoubleNode(array[1]);
+                    }
+                    Add(array[i]);
+                }
+            }
+            else
+            {
+                CreateEmptyList();
+            }
+        }
         public void Add(int value)
         {
             AddAtIndex(value, Length);
