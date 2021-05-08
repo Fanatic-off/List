@@ -190,6 +190,17 @@ namespace List
         {
             return this.Length;
         }
+        public int GetFirstIndexByValue(int value)
+        {
+            for (int i = 0; i < Length; i++)
+            {
+                if (value == GetNodeByIndex(i).Value)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
         public override bool Equals(object obj)
         {
             DoubleLinkedList list = (DoubleLinkedList)obj;
