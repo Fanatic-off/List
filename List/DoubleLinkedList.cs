@@ -23,6 +23,50 @@ namespace List
                 GetNodeByIndex(index).Value = value;
             }
         }
+        public void Add(int value)
+        {
+            AddAtIndex(value, Length);
+        }
+        public void AddAtFirstIndex(int value)
+        {
+            AddAtIndex(value, 0);
+        }
+        public void AddAtIndex(int value, int index)
+        {
+            if (index > Length || index < 0)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            DoubleNode temp = new DoubleNode(value);
+            if (Length == 0)
+            {
+                CreateListWithOneElement(value);
+            }
+            else if (index == 0)
+            {
+                temp.Prev = null;
+                temp.Next = _root;
+                _root.Prev = temp;
+                _root = temp;
+                Length++;
+            }
+            else if (index == Length)
+            {
+                temp.Next = null;
+                temp.Prev = _tail;
+                _tail.Next = temp;
+                _tail = temp;
+                Length++;
+            }
+            else
+            {
+                temp.Next = GetNodeByIndex(index);
+                temp.Prev = GetNodeByIndex(index).Prev;
+                temp.Next.Prev = temp;
+                temp.Prev.Next = temp;
+                Length++;
+            }
+        }
         public override bool Equals(object obj)
         {
             DoubleLinkedList list = (DoubleLinkedList)obj;
