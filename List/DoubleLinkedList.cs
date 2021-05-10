@@ -310,6 +310,51 @@ namespace List
             }
             return count;
         }
+        public void AddList(DoubleLinkedList list)
+        {
+            AddListByIndex(list, Length);
+        }
+        public void AddListAtBeginning(DoubleLinkedList list)
+        {
+            AddListByIndex(list, 0);
+        }
+        public void AddListByIndex(DoubleLinkedList list, int index)
+        {
+            CheckArgumentIsNotNull(list);
+            if (index >= Length + 1 || index < 0)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            DoubleLinkedList copyList = CopyList(list);
+            if (this.Length == 0)
+            {
+                this._root = copyList._root;
+                this._tail = copyList._tail;
+            }
+            else if (list.GetLength() > 0)
+            {
+                if (index == 0)
+                {
+                    copyList._tail.Next = this._root;
+                    this._root.Prev = copyList._tail;
+                    _root = copyList._root;
+                }
+                else if (index == Length)
+                {
+                    _tail.Next = copyList._root;
+                    copyList._root.Prev = this._tail;
+                    _tail = copyList._tail;
+                }
+                else
+                {
+                    copyList._tail.Next = this.GetNodeByIndex(index);
+                    this.GetNodeByIndex(index).Prev.Next = copyList._root;
+                    copyList._root.Prev = this.GetNodeByIndex(index).Prev;
+                    this.GetNodeByIndex(index).Prev = copyList._tail;
+                }
+            }
+            this.Length += copyList.Length;
+        }
         public override bool Equals(object obj)
         {
             DoubleLinkedList list = (DoubleLinkedList)obj;
