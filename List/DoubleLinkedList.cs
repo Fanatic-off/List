@@ -218,6 +218,26 @@ namespace List
                 _root = tmp.Prev;
             }
         }
+        public int GetMaxValue()
+        {
+            return this[GetIndexOfMaxValue()];
+        }
+        public int GetIndexOfMaxValue()
+        {
+            CheckArrayIsNotEmpty();
+
+            int max = GetNodeByIndex(0).Value;
+            int maxIndex = 0;
+            for (int i = 1; i < Length; i++)
+            {
+                if (GetNodeByIndex(i).Value > max)
+                {
+                    max = GetNodeByIndex(i).Value;
+                    maxIndex = i;
+                }
+            }
+            return maxIndex;
+        }
         public override bool Equals(object obj)
         {
             DoubleLinkedList list = (DoubleLinkedList)obj;
