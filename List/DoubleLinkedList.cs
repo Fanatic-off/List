@@ -258,6 +258,7 @@ namespace List
             }
             return minIndex;
         }
+
         public override bool Equals(object obj)
         {
             DoubleLinkedList list = (DoubleLinkedList)obj;
@@ -370,6 +371,12 @@ namespace List
             {
                 throw new NullReferenceException();
             }
+        }
+        private void Swap(int index)
+        {
+            int tmp = GetNodeByIndex(index).Value;
+            GetNodeByIndex(index).Value = GetNodeByIndex(index).Prev.Value;
+            GetNodeByIndex(index).Prev.Value = tmp;
         }
         private DoubleLinkedList CopyList(DoubleLinkedList list)
         {
