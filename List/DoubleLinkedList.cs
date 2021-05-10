@@ -284,6 +284,19 @@ namespace List
                 }
             }
         }
+        public int RemoveFirstByValue(int value)
+        {
+            for (int i = 0; i < Length; i++)
+            {
+                if (GetNodeByIndex(i).Value == value)
+                {
+                    RemoveByIndex(i);
+                    return i;
+                }
+            }
+            return -1;
+        }
+
         public override bool Equals(object obj)
         {
             DoubleLinkedList list = (DoubleLinkedList)obj;
