@@ -238,6 +238,26 @@ namespace List
             }
             return maxIndex;
         }
+        public int GetMinValue()
+        {
+            return this[GetIndexOfMinValue()];
+        }
+        public int GetIndexOfMinValue()
+        {
+            CheckArrayIsNotEmpty();
+
+            int min = GetNodeByIndex(0).Value;
+            int minIndex = 0;
+            for (int i = 1; i < Length; i++)
+            {
+                if (GetNodeByIndex(i).Value < min)
+                {
+                    min = GetNodeByIndex(i).Value;
+                    minIndex = i;
+                }
+            }
+            return minIndex;
+        }
         public override bool Equals(object obj)
         {
             DoubleLinkedList list = (DoubleLinkedList)obj;
