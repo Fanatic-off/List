@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace List
 {
@@ -9,7 +7,6 @@ namespace List
         public int Lenght { get; private set; }
 
         private int[] _array;
-
         public ArrayList()
         {
             Lenght = 0;
